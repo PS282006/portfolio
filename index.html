@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parth Singh — Full-Stack Developer & UI Designer</title>
+  <meta name="description" content="Parth Singh is a Full-Stack Web Developer and UI Designer from India, specializing in beautiful modern web apps, dashboards, and AI-powered tools." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- Noise Overlay -->
+  <div class="noise"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-logo">
+      <span class="logo-bracket">&lt;</span>
+      <span class="logo-name">PS</span>
+      <span class="logo-bracket">/&gt;</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Hire Me</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <canvas class="hero-canvas" id="hero-canvas"></canvas>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Available for work
+      </div>
+      <h1 class="hero-title">
+        <span class="hero-greeting">Hey, I'm</span>
+        <span class="hero-name">Parth Singh</span>
+        <span class="hero-role">
+          I build <span class="typed-text" id="typed-text"></span><span class="cursor-blink">|</span>
+        </span>
+      </h1>
+      <p class="hero-desc">
+        Full-Stack Developer & UI Designer crafting stunning web experiences that don't just work — they <em>impress</em>.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">
+          <span>View My Work</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#contact" class="btn btn-ghost">Let's Talk</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">5+</span>
+          <span class="stat-label">Projects Built</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">3+</span>
+          <span class="stat-label">Tech Stacks</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">∞</span>
+          <span class="stat-label">Creativity</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-label">
+        <span class="label-line"></span>
+        <span>About Me</span>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <h2 class="section-title">Turning ideas into <span class="gradient-text">digital reality</span></h2>
+          <p>I'm a passionate Full-Stack Developer and UI Designer currently pursuing my Bachelor's in Information Technology at Pillai College of Engineering, Mumbai. I specialize in building beautiful, modern web applications and desktop tools that combine functionality with stunning design.</p>
+          <p>From real-time dashboards to AI-powered tools, I love working on projects that push the boundaries of what's possible on the web. Every pixel matters to me.</p>
+          <div class="about-tags">
+            <span class="tag">🚀 Fast Learner</span>
+            <span class="tag">🎨 Design-First</span>
+            <span class="tag">🤖 AI Enthusiast</span>
+            <span class="tag">⚡ Detail-Oriented</span>
+          </div>
+        </div>
+        <div class="about-card-wrap reveal">
+          <div class="about-card glass">
+            <div class="card-header">
+              <div class="card-dots">
+                <span></span><span></span><span></span>
+              </div>
+              <span class="card-title mono">parth.config.js</span>
+            </div>
+            <div class="card-body mono">
+              <div class="code-line"><span class="code-key">const</span> <span class="code-var">parth</span> = {</div>
+              <div class="code-line indent"><span class="code-key">location</span>: <span class="code-str">"Panvel, India 🇮🇳"</span>,</div>
+              <div class="code-line indent"><span class="code-key">studying</span>: <span class="code-str">"B.Tech IT (2024-28)"</span>,</div>
+              <div class="code-line indent"><span class="code-key">available</span>: <span class="code-bool">true</span>,</div>
+              <div class="code-line indent"><span class="code-key">loves</span>: [</div>
+              <div class="code-line indent2"><span class="code-str">"Clean Code"</span>,</div>
+              <div class="code-line indent2"><span class="code-str">"Stunning UI"</span>,</div>
+              <div class="code-line indent2"><span class="code-str">"AI Tools"</span>,</div>
+              <div class="code-line indent">],</div>
+              <div class="code-line indent"><span class="code-key">rate</span>: <span class="code-str">"$15/hr"</span>,</div>
+              <div class="code-line">};</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="skills section" id="skills">
+    <div class="container">
+      <div class="section-label">
+        <span class="label-line"></span>
+        <span>Skills</span>
+      </div>
+      <h2 class="section-title reveal">My <span class="gradient-text">Tech Stack</span></h2>
+      <div class="skills-grid">
+        <div class="skill-card glass reveal">
+          <div class="skill-icon">🌐</div>
+          <h3>Frontend</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <span>HTML / CSS</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w: 95%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span>JavaScript</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w: 88%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span>React</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w: 75%"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-card glass reveal">
+          <div class="skill-icon">⚙️</div>
+          <h3>Backend & Tools</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <span>Node.js</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w: 80%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span>Electron.js</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w: 85%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span>API Integration</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w: 90%"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-card glass reveal">
+          <div class="skill-icon">🤖</div>
+          <h3>AI & Design</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <span>AI Integration</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w: 82%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span>UI/UX Design</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w: 88%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span>Figma</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w: 70%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tech badges -->
+      <div class="tech-badges reveal">
+        <span class="tech-badge">HTML5</span>
+        <span class="tech-badge">CSS3</span>
+        <span class="tech-badge">JavaScript</span>
+        <span class="tech-badge">React</span>
+        <span class="tech-badge">Node.js</span>
+        <span class="tech-badge">Electron</span>
+        <span class="tech-badge">Git</span>
+        <span class="tech-badge">REST APIs</span>
+        <span class="tech-badge">AI/LLM</span>
+        <span class="tech-badge">Figma</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects section" id="projects">
+    <div class="container">
+      <div class="section-label">
+        <span class="label-line"></span>
+        <span>Projects</span>
+      </div>
+      <h2 class="section-title reveal">Things I've <span class="gradient-text">Built</span></h2>
+
+      <div class="projects-grid">
+
+        <!-- Project 1 -->
+        <div class="project-card glass reveal featured">
+          <div class="project-img-wrap">
+            <div class="project-img" style="background: linear-gradient(135deg, #0f1a0f 0%, #001a00 50%, #0d1a0d 100%);">
+              <div class="project-terminal">
+                <div class="terminal-bar">
+                  <span></span><span></span><span></span>
+                  <span class="terminal-title">parths-room</span>
+                </div>
+                <div class="terminal-content">
+                  <div class="t-line"><span class="t-green">●</span> System Status: <span class="t-green">ONLINE</span></div>
+                  <div class="t-line"><span class="t-cyan">CPU:</span> 34% | RAM: 8.2GB</div>
+                  <div class="t-line"><span class="t-red">⚠</span> Threats Detected: 3</div>
+                  <div class="t-line"><span class="t-green">✓</span> VPN: Active</div>
+                  <div class="t-line"><span class="t-yellow">AI&gt;</span> Analyzing network...</div>
+                </div>
+              </div>
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="project-link">View Project →</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="ptag">Electron</span>
+              <span class="ptag">JavaScript</span>
+              <span class="ptag">AI</span>
+              <span class="ptag featured-tag">Featured</span>
+            </div>
+            <h3>Cybersecurity War Room</h3>
+            <p>A real-time desktop dashboard featuring a live global threat map, system vitals monitoring, Ghost Mode privacy toggle, AI terminal powered by LLaMA, CVE feeds, and Spotify integration. Built with Electron.js.</p>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card glass reveal">
+          <div class="project-img-wrap">
+            <div class="project-img" style="background: linear-gradient(135deg, #0a0a2e 0%, #1a0a3e 50%, #0e0a2a 100%);">
+              <div class="project-mockup">
+                <div class="mock-header">📊 Analytics Dashboard</div>
+                <div class="mock-chart">
+                  <div class="bar-wrap">
+                    <div class="bar" style="height:60%"></div>
+                    <div class="bar" style="height:85%"></div>
+                    <div class="bar" style="height:45%"></div>
+                    <div class="bar" style="height:90%"></div>
+                    <div class="bar" style="height:70%"></div>
+                  </div>
+                </div>
+                <div class="mock-stats">
+                  <span>↑ 24.5%</span>
+                  <span>$12.4K</span>
+                </div>
+              </div>
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="project-link">View Project →</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="ptag">React</span>
+              <span class="ptag">CSS</span>
+              <span class="ptag">APIs</span>
+            </div>
+            <h3>Analytics Dashboard</h3>
+            <p>A beautiful data analytics dashboard with real-time charts, KPI tracking, and dark-mode UI. Clean, fast, and fully responsive.</p>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card glass reveal">
+          <div class="project-img-wrap">
+            <div class="project-img" style="background: linear-gradient(135deg, #1a0a0a 0%, #2a0a0a 50%, #1a0a14 100%);">
+              <div class="project-mockup">
+                <div class="mock-header" style="color:#ff6b6b">🤖 AI Assistant</div>
+                <div class="mock-chat">
+                  <div class="chat-bubble user">How do I optimize my API?</div>
+                  <div class="chat-bubble ai">Here's how to cache your responses...</div>
+                </div>
+              </div>
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="project-link">View Project →</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="ptag">JavaScript</span>
+              <span class="ptag">AI API</span>
+              <span class="ptag">UI/UX</span>
+            </div>
+            <h3>AI Chat Interface</h3>
+            <p>A sleek, responsive AI chat interface with typing animations, markdown rendering, and conversation history. Connects to LLM APIs.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-label">
+        <span class="label-line"></span>
+        <span>Contact</span>
+      </div>
+      <div class="contact-wrap reveal">
+        <h2 class="section-title">Let's build something <span class="gradient-text">amazing</span></h2>
+        <p class="contact-sub">Have a project in mind? I'm available for freelance work and would love to hear about it.</p>
+
+        <div class="contact-cards">
+          <a href="mailto:singh2006parth@gmail.com" class="contact-card glass">
+            <div class="cc-icon">✉️</div>
+            <div class="cc-info">
+              <span class="cc-label">Email</span>
+              <span class="cc-value">singh2006parth@gmail.com</span>
+            </div>
+          </a>
+          <a href="https://upwork.com" target="_blank" class="contact-card glass">
+            <div class="cc-icon">💼</div>
+            <div class="cc-info">
+              <span class="cc-label">Upwork</span>
+              <span class="cc-value">Hire me on Upwork</span>
+            </div>
+          </a>
+          <a href="https://github.com/PS282006" target="_blank" class="contact-card glass">
+            <div class="cc-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            </div>
+            <div class="cc-info">
+              <span class="cc-label">GitHub</span>
+              <span class="cc-value">github.com/PS282006</span>
+            </div>
+          </a>
+        </div>
+
+        <a href="mailto:singh2006parth@gmail.com" class="btn btn-primary btn-large">
+          <span>Start a Project</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <span class="mono">Built with ❤️ by Parth Singh</span>
+      <span class="mono">© 2025</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
