@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Parth Singh — Full-Stack Developer & UI Designer</title>
-  <meta name="description" content="Parth Singh is a Full-Stack Web Developer and UI Designer from India, specializing in beautiful modern web apps, dashboards, and AI-powered tools." />
+  <title>Parth Singh — Security-Focused Builder & Systems Engineer</title>
+  <meta name="description" content="Parth Singh is a Security-Focused Builder & Systems Engineer from India, specializing in defensive security tooling, threat intelligence dashboards, and robust systems software." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -51,7 +51,7 @@
         </span>
       </h1>
       <p class="hero-desc">
-        Full-Stack Developer & UI Designer crafting stunning web experiences that don't just work — they <em>impress</em>.
+        Security-Focused Builder & Systems Engineer crafting defensive security tooling, threat intelligence dashboards, and robust systems software.
       </p>
       <div class="hero-actions">
         <a href="#projects" class="btn btn-primary">
@@ -140,6 +140,36 @@
       <h2 class="section-title reveal">My <span class="gradient-text">Tech Stack</span></h2>
       <div class="skills-grid">
         <div class="skill-card glass reveal">
+          <div class="skill-icon">🛡️</div>
+          <h3>Security & Backend</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <span>Python</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w: 92%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span>FastAPI</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w: 90%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span>Cryptography</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w: 88%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span>Networking (Scapy)</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w: 85%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span>RAG/LLM Integration</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w: 94%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span>ChromaDB</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w: 86%"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-card glass reveal">
           <div class="skill-icon">🌐</div>
           <h3>Frontend</h3>
           <div class="skill-items">
@@ -222,7 +252,43 @@
 
       <div class="projects-grid">
 
-        <!-- Project 1 -->
+        <!-- Project 1: NyaySetu -->
+        <div class="project-card glass reveal featured">
+          <div class="project-img-wrap">
+            <div class="project-img" style="background: linear-gradient(135deg, #0a1628 0%, #06101e 50%, #0a1f3d 100%);">
+              <div class="project-terminal">
+                <div class="terminal-bar">
+                  <span></span><span></span><span></span>
+                  <span class="terminal-title">nyaysetu-core // rag-engine</span>
+                </div>
+                <div class="terminal-content">
+                  <div class="t-line"><span class="t-green">●</span> RAG Pipeline: <span class="t-green">ACTIVE</span></div>
+                  <div class="t-line"><span class="t-cyan">Corpus:</span> BNS / BNSS / BSA 2023</div>
+                  <div class="t-line"><span class="t-yellow">⚡ LPU:</span> Groq Mixtral · 480 t/s</div>
+                  <div class="t-line"><span class="t-green">✓</span> Wolfram Alpha: Connected</div>
+                  <div class="t-line"><span class="t-cyan">Draft&gt;</span> Generating Legal Notice [EN/HI/MR]...</div>
+                </div>
+              </div>
+            </div>
+            <div class="project-overlay">
+              <a href="https://nyay-setu-omega.vercel.app" target="_blank" class="project-link">Live Demo →</a>
+              <a href="https://github.com/PS282006/NyaySetu" target="_blank" class="project-link" style="margin-left: 10px;">View Project →</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="ptag">Next.js</span>
+              <span class="ptag">FastAPI</span>
+              <span class="ptag">RAG</span>
+              <span class="ptag">LLM</span>
+              <span class="ptag featured-tag">Featured</span>
+            </div>
+            <h3>NyaySetu — AI Legal Aid Assistant</h3>
+            <p>An AI-powered legal assistant for Indian citizens — RAG over Indian statutory law (BNS/BNSS 2023, RTI Act, Consumer Protection Act, POSH Act), Groq LPU inference, Wolfram Alpha for compensation calculations, and 1-click generation of court-ready legal notices/FIRs, in English, Hindi, and Marathi with voice support.</p>
+          </div>
+        </div>
+
+        <!-- Project 2: SpectreOps -->
         <div class="project-card glass reveal featured">
           <div class="project-img-wrap">
             <div class="project-img" style="background: linear-gradient(135deg, #0f1a0f 0%, #001a00 50%, #0d1a0d 100%);">
@@ -256,68 +322,7 @@
           </div>
         </div>
 
-        <!-- Project 2 -->
-        <div class="project-card glass reveal">
-          <div class="project-img-wrap">
-            <div class="project-img" style="background: linear-gradient(135deg, #0a0a2e 0%, #1a0a3e 50%, #0e0a2a 100%);">
-              <div class="project-mockup">
-                <div class="mock-header">📊 Analytics Dashboard</div>
-                <div class="mock-chart">
-                  <div class="bar-wrap">
-                    <div class="bar" style="height:60%"></div>
-                    <div class="bar" style="height:85%"></div>
-                    <div class="bar" style="height:45%"></div>
-                    <div class="bar" style="height:90%"></div>
-                    <div class="bar" style="height:70%"></div>
-                  </div>
-                </div>
-                <div class="mock-stats">
-                  <span>↑ 24.5%</span>
-                  <span>$12.4K</span>
-                </div>
-              </div>
-            </div>
-            <div class="project-overlay">
-              <a href="#" class="project-link">View Project →</a>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-tags">
-              <span class="ptag">React</span>
-              <span class="ptag">CSS</span>
-              <span class="ptag">APIs</span>
-            </div>
-            <h3>Analytics Dashboard</h3>
-            <p>A beautiful data analytics dashboard with real-time charts, KPI tracking, and dark-mode UI. Clean, fast, and fully responsive.</p>
-          </div>
-        </div>
 
-        <!-- Project 3 -->
-        <div class="project-card glass reveal">
-          <div class="project-img-wrap">
-            <div class="project-img" style="background: linear-gradient(135deg, #1a0a0a 0%, #2a0a0a 50%, #1a0a14 100%);">
-              <div class="project-mockup">
-                <div class="mock-header" style="color:#ff6b6b">🤖 AI Assistant</div>
-                <div class="mock-chat">
-                  <div class="chat-bubble user">How do I optimize my API?</div>
-                  <div class="chat-bubble ai">Here's how to cache your responses...</div>
-                </div>
-              </div>
-            </div>
-            <div class="project-overlay">
-              <a href="#" class="project-link">View Project →</a>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-tags">
-              <span class="ptag">JavaScript</span>
-              <span class="ptag">AI API</span>
-              <span class="ptag">UI/UX</span>
-            </div>
-            <h3>AI Chat Interface</h3>
-            <p>A sleek, responsive AI chat interface with typing animations, markdown rendering, and conversation history. Connects to LLM APIs.</p>
-          </div>
-        </div>
 
       </div>
     </div>
@@ -332,7 +337,7 @@
       </div>
       <div class="contact-wrap reveal">
         <h2 class="section-title">Let's build something <span class="gradient-text">amazing</span></h2>
-        <p class="contact-sub">Have a project in mind? I'm available for freelance work and would love to hear about it.</p>
+        <p class="contact-sub">Open to internship and early-stage startup opportunities, remote — let's talk.</p>
 
         <div class="contact-cards">
           <a href="mailto:singh2006parth@gmail.com" class="contact-card glass">
@@ -340,13 +345,6 @@
             <div class="cc-info">
               <span class="cc-label">Email</span>
               <span class="cc-value">singh2006parth@gmail.com</span>
-            </div>
-          </a>
-          <a href="https://upwork.com" target="_blank" class="contact-card glass">
-            <div class="cc-icon">💼</div>
-            <div class="cc-info">
-              <span class="cc-label">Upwork</span>
-              <span class="cc-value">Hire me on Upwork</span>
             </div>
           </a>
           <a href="https://github.com/PS282006" target="_blank" class="contact-card glass">
