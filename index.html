@@ -4,82 +4,257 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Parth Singh — Security-Focused Builder & Systems Engineer</title>
-  <meta name="description" content="Parth Singh is a Security-Focused Builder & Systems Engineer from India, specializing in defensive security tooling, threat intelligence dashboards, and robust systems software." />
+  <meta name="description" content="Parth Singh is a Security-Focused Builder & Systems Engineer specializing in defensive security tooling, threat intelligence HUDs, RAG AI systems, and low-level software." />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Parth Singh — Security-Focused Builder & Systems Engineer" />
+  <meta property="og:description" content="Defensive security tooling, threat intelligence HUDs, statutory RAG assistants, and resilient systems software." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ps282006.github.io/portfolio/" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- Top Scroll Progress Bar -->
+  <div class="scroll-progress-bar" id="scroll-progress"></div>
+
+  <!-- Ambient Mouse Glow Spotlight -->
+  <div class="mouse-glow" id="mouse-glow"></div>
 
   <!-- Custom Cursor -->
   <div class="cursor" id="cursor"></div>
   <div class="cursor-follower" id="cursor-follower"></div>
 
-  <!-- Noise Overlay -->
-  <div class="noise"></div>
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
 
   <!-- Navigation -->
   <nav class="nav" id="nav">
-    <div class="nav-logo">
-      <span class="logo-bracket">&lt;</span>
-      <span class="logo-name">PS</span>
-      <span class="logo-bracket">/&gt;</span>
+    <div class="nav-inner container">
+      <a href="#home" class="nav-logo" aria-label="Home">
+        <span class="logo-bracket">&lt;</span>
+        <span class="logo-text">PS</span>
+        <span class="logo-status-dot"></span>
+        <span class="logo-bracket">/&gt;</span>
+      </a>
+
+      <div class="nav-status-pill">
+        <span class="pulse-dot"></span>
+        <span class="status-text">Available for Roles</span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#terminal" class="nav-link">CLI HUD</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-nav">Get in Touch</a>
+      </div>
     </div>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <a href="#contact" class="nav-cta">Hire Me</a>
   </nav>
 
   <!-- Hero Section -->
   <section class="hero" id="home">
     <canvas class="hero-canvas" id="hero-canvas"></canvas>
-    <div class="hero-content">
-      <div class="hero-badge">
-        <span class="badge-dot"></span>
-        Available for work
-      </div>
-      <h1 class="hero-title">
-        <span class="hero-greeting">Hey, I'm</span>
-        <span class="hero-name">Parth Singh</span>
-        <span class="hero-role">
-          I build <span class="typed-text" id="typed-text"></span><span class="cursor-blink">|</span>
-        </span>
-      </h1>
-      <p class="hero-desc">
-        Security-Focused Builder & Systems Engineer crafting defensive security tooling, threat intelligence dashboards, and robust systems software.
-      </p>
-      <div class="hero-actions">
-        <a href="#projects" class="btn btn-primary">
-          <span>View My Work</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="#contact" class="btn btn-ghost">Let's Talk</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-num">5+</span>
-          <span class="stat-label">Projects Built</span>
+    <div class="hero-grid-bg"></div>
+
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="hero-badge reveal">
+          <span class="badge-ping"></span>
+          <span class="badge-dot"></span>
+          <span>Security-Focused Builder &amp; Systems Engineer</span>
         </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-num">3+</span>
-          <span class="stat-label">Tech Stacks</span>
+
+        <h1 class="hero-title reveal">
+          <span class="hero-greeting">Building Resilient</span>
+          <span class="hero-glitch" data-text="Systems &amp; Security">Systems &amp; Security</span>
+          <span class="hero-dynamic">
+            Engineered for <span class="typed-text" id="typed-text"></span><span class="cursor-blink">|</span>
+          </span>
+        </h1>
+
+        <p class="hero-desc reveal">
+          I'm Parth Singh — an IT undergraduate and systems programmer crafting defensive security tools, real-time threat intelligence dashboards, and statutory RAG engines.
+        </p>
+
+        <div class="hero-actions reveal">
+          <a href="#projects" class="btn btn-primary">
+            <span>Explore Projects</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+          <button class="btn btn-ghost copy-email-btn" data-email="parth.singh2006@outlook.com">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+            <span>Copy Email</span>
+          </button>
+          <a href="https://github.com/PS282006" target="_blank" rel="noopener noreferrer" class="btn btn-icon" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
         </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-num">∞</span>
-          <span class="stat-label">Creativity</span>
+
+        <div class="hero-stats reveal">
+          <div class="stat-card">
+            <span class="stat-number">6+</span>
+            <span class="stat-name">Security &amp; AI Tools</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">480<span class="stat-unit">t/s</span></span>
+            <span class="stat-name">LPU Inference Velocity</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">100<span class="stat-unit">%</span></span>
+            <span class="stat-name">Open Source Code</span>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="hero-scroll">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
+
+      <!-- Right Column: Interactive Cyber Telemetry HUD -->
+      <div class="hero-preview reveal">
+        <div class="hud-box tilt-card" id="hero-hud">
+          <div class="hud-header">
+            <div class="hud-window-dots">
+              <span class="dot-red"></span>
+              <span class="dot-yellow"></span>
+              <span class="dot-green"></span>
+            </div>
+            <div class="hud-tabs">
+              <button class="hud-tab active" data-hud-tab="spectre">SpectreOps.sh</button>
+              <button class="hud-tab" data-hud-tab="rag">NyaySetu.rag</button>
+              <button class="hud-tab" data-hud-tab="net">GhostNet.audit</button>
+            </div>
+            <div class="hud-live-tag">
+              <span class="live-dot"></span>
+              <span>TELEMETRY</span>
+            </div>
+          </div>
+
+          <div class="hud-screen">
+            <!-- Tab 1: SpectreOps HUD -->
+            <div class="hud-tab-pane active" id="pane-spectre">
+              <div class="hud-row">
+                <span class="t-dim">[NODE]</span>
+                <span class="t-cyan">SpectreOps Cyber War Room v2.4</span>
+                <span class="t-green t-badge">ONLINE</span>
+              </div>
+              <div class="hud-row">
+                <span class="t-dim">[CORE]</span>
+                <span>Ollama / LLaMA 3.2 3B · Quantized · Latency: 12ms</span>
+              </div>
+              <div class="hud-grid-metrics">
+                <div class="metric-cell">
+                  <span class="metric-label">CPU LOAD</span>
+                  <span class="metric-val t-green">24.2%</span>
+                  <div class="mini-bar"><div class="mini-fill" style="width: 24%"></div></div>
+                </div>
+                <div class="metric-cell">
+                  <span class="metric-label">MEMORY</span>
+                  <span class="metric-val t-cyan">6.1 / 16 GB</span>
+                  <div class="mini-bar"><div class="mini-fill" style="width: 38%"></div></div>
+                </div>
+                <div class="metric-cell">
+                  <span class="metric-label">GHOST MODE</span>
+                  <span class="metric-val t-purple">SHIELDED</span>
+                  <div class="mini-bar"><div class="mini-fill purple" style="width: 100%"></div></div>
+                </div>
+                <div class="metric-cell">
+                  <span class="metric-label">THREAT RADAR</span>
+                  <span class="metric-val t-yellow">0 CRITICAL</span>
+                  <div class="mini-bar"><div class="mini-fill" style="width: 12%"></div></div>
+                </div>
+              </div>
+              <div class="hud-terminal-log">
+                <p class="log-line"><span class="t-green">✔</span> ARP spoof protection armed via Ghost-Net hook</p>
+                <p class="log-line"><span class="t-green">✔</span> Cloudflare DoH &amp; Encrypted SNI route verified</p>
+                <p class="log-line"><span class="t-yellow">⚡</span> NVD CVE Feed parsed: 18 high, 0 active vectors</p>
+                <p class="log-line t-cyan">&gt; AI Copilot: Standing by for telemetry query...</p>
+              </div>
+            </div>
+
+            <!-- Tab 2: NyaySetu RAG Engine -->
+            <div class="hud-tab-pane" id="pane-rag">
+              <div class="hud-row">
+                <span class="t-dim">[ENGINE]</span>
+                <span class="t-cyan">NyaySetu Statutory Legal RAG Pipeline</span>
+                <span class="t-green t-badge">OPTIMIZED</span>
+              </div>
+              <div class="hud-row">
+                <span class="t-dim">[CORPUS]</span>
+                <span>Bharatiya Nyaya Sanhita (BNS / BNSS / BSA 2023)</span>
+              </div>
+              <div class="hud-grid-metrics">
+                <div class="metric-cell">
+                  <span class="metric-label">VECTOR STORE</span>
+                  <span class="metric-val t-green">ChromaDB</span>
+                </div>
+                <div class="metric-cell">
+                  <span class="metric-label">LPU INFERENCE</span>
+                  <span class="metric-val t-cyan">Groq Mixtral</span>
+                </div>
+                <div class="metric-cell">
+                  <span class="metric-label">VERIFICATION</span>
+                  <span class="metric-val t-purple">Wolfram Alpha</span>
+                </div>
+                <div class="metric-cell">
+                  <span class="metric-label">VOICE GEN</span>
+                  <span class="metric-val t-yellow">EN / HI / MR</span>
+                </div>
+              </div>
+              <div class="hud-terminal-log">
+                <p class="log-line"><span class="t-green">✔</span> Legal semantic embedding index loaded (BNS 2023)</p>
+                <p class="log-line"><span class="t-green">✔</span> Cross-encoder re-ranking top-k relevance: 0.94</p>
+                <p class="log-line"><span class="t-cyan">&gt; FIR Draft: Court-ready legal notice generated in 1.1s</span></p>
+              </div>
+            </div>
+
+            <!-- Tab 3: Ghost-Net Packet Auditor -->
+            <div class="hud-tab-pane" id="pane-net">
+              <div class="hud-row">
+                <span class="t-dim">[AUDIT]</span>
+                <span class="t-cyan">Ghost-Net Scapy Packet Sniffer &amp; MITM Radar</span>
+                <span class="t-green t-badge">LISTENING</span>
+              </div>
+              <div class="hud-grid-metrics">
+                <div class="metric-cell">
+                  <span class="metric-label">INTERFACE</span>
+                  <span class="metric-val t-green">en0 (Promisc)</span>
+                </div>
+                <div class="metric-cell">
+                  <span class="metric-label">PACKETS</span>
+                  <span class="metric-val t-cyan" id="packet-counter">4,129 pkts</span>
+                </div>
+                <div class="metric-cell">
+                  <span class="metric-label">ARP CACHE</span>
+                  <span class="metric-val t-green">VALIDATED</span>
+                </div>
+                <div class="metric-cell">
+                  <span class="metric-label">ROGUE PROBES</span>
+                  <span class="metric-val t-yellow">0 DETECTED</span>
+                </div>
+              </div>
+              <div class="hud-terminal-log">
+                <p class="log-line"><span class="t-green">✔</span> Dynamic ARP inspection enabled</p>
+                <p class="log-line"><span class="t-green">✔</span> Gateway MAC signature matches known gateway OUI</p>
+                <p class="log-line t-cyan">&gt; Scapy engine active: Network broadcast frames clean</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="hud-footer">
+            <span class="hud-status-indicator"></span>
+            <span>SYSTEM ENCRYPTED // TLS 1.3 // ZERO-TRUST NODE</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -88,155 +263,102 @@
     <div class="container">
       <div class="section-label">
         <span class="label-line"></span>
-        <span>About Me</span>
+        <span>Identity &amp; Philosophy</span>
       </div>
+
       <div class="about-grid">
-        <div class="about-text reveal">
-          <h2 class="section-title">Security-focused builder & <span class="gradient-text">systems engineer</span></h2>
-          <p>I'm a developer and Information Technology undergraduate at Pillai College of Engineering, Mumbai. Rather than building tutorial clones, I focus on engineering real-world defensive security and systems tools — from low-level raw ARP packet crafting and pre-commit secret scanners to cryptographic key derivation utilities.</p>
-          <p>Across my work, there's a unified theme: <strong>systems telemetry, counter-surveillance, and developer security</strong>. My flagship build is <a href="https://github.com/PS282006/spectre-ops" class="gradient-text" target="_blank">SpectreOps</a> (Parth's Room) — a cyberpunk macOS war room HUD integrating real-time threat intelligence feeds, local Ollama/Llama 3.2 AI telemetry, and automated anti-surveillance protocols.</p>
-          <p><strong>I'm actively looking to join an early-stage startup team remotely as an engineering or security intern with a clear path toward deeper technical ownership.</strong></p>
-          <div class="about-tags">
-            <span class="tag">🛡️ Cybersecurity</span>
-            <span class="tag">⚡ Systems & DevTools</span>
-            <span class="tag">🤖 Local AI & LLMs</span>
-            <span class="tag">🚀 Startup Ready</span>
-          </div>
-        </div>
-        <div class="about-card-wrap reveal">
-          <div class="about-card glass">
-            <div class="card-header">
-              <div class="card-dots">
-                <span></span><span></span><span></span>
+        <div class="about-main reveal">
+          <h2 class="section-title">
+            Engineering for <span class="gradient-text">resilience</span>, not tutorial clones.
+          </h2>
+          <p class="lead-text">
+            I'm an Information Technology undergraduate at Pillai College of Engineering, Mumbai, building low-level defensive tools, counter-surveillance software, and production-grade statutory AI assistants.
+          </p>
+          <p>
+            Rather than assembling superficial templates, my engineering focus centers on <strong>systems telemetry, automated secret auditing, network packet analysis, and secure RAG architectures</strong>. From writing low-level packet capture scripts with Scapy to creating a full macOS cybersecurity command center with offline LLaMA 3.2, I build software designed to perform under scrutiny.
+          </p>
+
+          <div class="about-highlights-grid">
+            <div class="highlight-item glass">
+              <div class="hl-icon">🛡️</div>
+              <div class="hl-content">
+                <h4>Defensive Engineering</h4>
+                <p>Applied cryptography, zero-knowledge vaults, and automated pre-commit secret scanners.</p>
               </div>
-              <span class="card-title mono">parth.config.js</span>
             </div>
-            <div class="card-body mono">
-              <div class="code-line"><span class="code-key">const</span> <span class="code-var">parth</span> = {</div>
-              <div class="code-line indent"><span class="code-key">location</span>: <span class="code-str">"Panvel, India 🇮🇳"</span>,</div>
-              <div class="code-line indent"><span class="code-key">studying</span>: <span class="code-str">"B.Tech IT (2024-28)"</span>,</div>
-              <div class="code-line indent"><span class="code-key">focus</span>: [</div>
-              <div class="code-line indent2"><span class="code-str">"Cybersecurity"</span>,</div>
-              <div class="code-line indent2"><span class="code-str">"DevSecOps Tools"</span>,</div>
-              <div class="code-line indent2"><span class="code-str">"Systems & Python"</span>,</div>
-              <div class="code-line indent">],</div>
-              <div class="code-line indent"><span class="code-key">seeking</span>: <span class="code-str">"Startup Internship (Remote)"</span>,</div>
-              <div class="code-line indent"><span class="code-key">available</span>: <span class="code-bool">true</span>,</div>
-              <div class="code-line">};</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Skills Section -->
-  <section class="skills section" id="skills">
-    <div class="container">
-      <div class="section-label">
-        <span class="label-line"></span>
-        <span>Skills</span>
-      </div>
-      <h2 class="section-title reveal">My <span class="gradient-text">Tech Stack</span></h2>
-      <div class="skills-grid">
-        <div class="skill-card glass reveal">
-          <div class="skill-icon">🛡️</div>
-          <h3>Security & Backend</h3>
-          <div class="skill-items">
-            <div class="skill-item">
-              <span>Python</span>
-              <div class="skill-bar"><div class="skill-fill" style="--w: 92%"></div></div>
+            <div class="highlight-item glass">
+              <div class="hl-icon">⚡</div>
+              <div class="hl-content">
+                <h4>High-Throughput AI</h4>
+                <p>Domain-grounded RAG pipelines powered by Groq LPU inference, ChromaDB, and statutory verification.</p>
+              </div>
             </div>
-            <div class="skill-item">
-              <span>FastAPI</span>
-              <div class="skill-bar"><div class="skill-fill" style="--w: 90%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span>Cryptography</span>
-              <div class="skill-bar"><div class="skill-fill" style="--w: 88%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span>Networking (Scapy)</span>
-              <div class="skill-bar"><div class="skill-fill" style="--w: 85%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span>RAG/LLM Integration</span>
-              <div class="skill-bar"><div class="skill-fill" style="--w: 94%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span>ChromaDB</span>
-              <div class="skill-bar"><div class="skill-fill" style="--w: 86%"></div></div>
-            </div>
-          </div>
-        </div>
-        <div class="skill-card glass reveal">
-          <div class="skill-icon">🌐</div>
-          <h3>Frontend</h3>
-          <div class="skill-items">
-            <div class="skill-item">
-              <span>HTML / CSS</span>
-              <div class="skill-bar"><div class="skill-fill" style="--w: 95%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span>JavaScript</span>
-              <div class="skill-bar"><div class="skill-fill" style="--w: 88%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span>React</span>
-              <div class="skill-bar"><div class="skill-fill" style="--w: 75%"></div></div>
-            </div>
-          </div>
-        </div>
-        <div class="skill-card glass reveal">
-          <div class="skill-icon">⚙️</div>
-          <h3>Backend & Tools</h3>
-          <div class="skill-items">
-            <div class="skill-item">
-              <span>Node.js</span>
-              <div class="skill-bar"><div class="skill-fill" style="--w: 80%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span>Electron.js</span>
-              <div class="skill-bar"><div class="skill-fill" style="--w: 85%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span>API Integration</span>
-              <div class="skill-bar"><div class="skill-fill" style="--w: 90%"></div></div>
-            </div>
-          </div>
-        </div>
-        <div class="skill-card glass reveal">
-          <div class="skill-icon">🤖</div>
-          <h3>AI & Design</h3>
-          <div class="skill-items">
-            <div class="skill-item">
-              <span>AI Integration</span>
-              <div class="skill-bar"><div class="skill-fill" style="--w: 82%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span>UI/UX Design</span>
-              <div class="skill-bar"><div class="skill-fill" style="--w: 88%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span>Figma</span>
-              <div class="skill-bar"><div class="skill-fill" style="--w: 70%"></div></div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- Tech badges -->
-      <div class="tech-badges reveal">
-        <span class="tech-badge">HTML5</span>
-        <span class="tech-badge">CSS3</span>
-        <span class="tech-badge">JavaScript</span>
-        <span class="tech-badge">React</span>
-        <span class="tech-badge">Node.js</span>
-        <span class="tech-badge">Electron</span>
-        <span class="tech-badge">Git</span>
-        <span class="tech-badge">REST APIs</span>
-        <span class="tech-badge">AI/LLM</span>
-        <span class="tech-badge">Figma</span>
+            <div class="highlight-item glass">
+              <div class="hl-icon">📡</div>
+              <div class="hl-content">
+                <h4>Real-Time HUDs</h4>
+                <p>Desktop command centers, hardware vitals monitoring, and threat intelligence streams.</p>
+              </div>
+            </div>
+
+            <div class="highlight-item glass">
+              <div class="hl-icon">🚀</div>
+              <div class="hl-content">
+                <h4>Startup Ready</h4>
+                <p>Focused on joining early-stage engineering teams remotely to build high-impact infrastructure.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-side reveal">
+          <div class="quick-facts-card glass">
+            <h3 class="facts-title">Telemetry &amp; Bio</h3>
+            <ul class="facts-list">
+              <li>
+                <span class="fact-label">Location</span>
+                <span class="fact-value">Mumbai / Panvel, India (UTC +5:30)</span>
+              </li>
+              <li>
+                <span class="fact-label">Education</span>
+                <span class="fact-value">B.E. Information Technology (2024–2028)</span>
+              </li>
+              <li>
+                <span class="fact-label">Institution</span>
+                <span class="fact-value">Pillai College of Engineering</span>
+              </li>
+              <li>
+                <span class="fact-label">Specialization</span>
+                <span class="fact-value">Systems Security, RAG &amp; Full-Stack</span>
+              </li>
+              <li>
+                <span class="fact-label">Status</span>
+                <span class="fact-value t-green">Open to Internship / Co-founder Roles</span>
+              </li>
+              <li>
+                <span class="fact-label">Preferred Work</span>
+                <span class="fact-value">Remote / High-Velocity Teams</span>
+              </li>
+            </ul>
+
+            <div class="facts-links">
+              <a href="https://github.com/PS282006" target="_blank" rel="noopener noreferrer" class="fact-link">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>PS282006</span>
+              </a>
+              <a href="https://www.linkedin.com/in/parth-singh-ba47ab386" target="_blank" rel="noopener noreferrer" class="fact-link">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                <span>LinkedIn</span>
+              </a>
+              <a href="https://x.com/parth_singh2006" target="_blank" rel="noopener noreferrer" class="fact-link">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                <span>@parth_singh2006</span>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -246,131 +368,472 @@
     <div class="container">
       <div class="section-label">
         <span class="label-line"></span>
-        <span>Projects</span>
+        <span>Featured Engineering</span>
       </div>
-      <h2 class="section-title reveal">Things I've <span class="gradient-text">Built</span></h2>
 
-      <div class="projects-grid">
+      <div class="projects-header-row reveal">
+        <h2 class="section-title">Things I've <span class="gradient-text">Engineered</span></h2>
+        
+        <!-- Filter Tabs -->
+        <div class="project-filters">
+          <button class="pfilter-btn active" data-filter="all">All</button>
+          <button class="pfilter-btn" data-filter="security">Security &amp; Systems</button>
+          <button class="pfilter-btn" data-filter="ai">AI &amp; LegalTech</button>
+          <button class="pfilter-btn" data-filter="tools">DevTools</button>
+        </div>
+      </div>
 
-        <!-- Project 1: NyaySetu -->
-        <div class="project-card glass reveal featured">
-          <div class="project-img-wrap">
-            <div class="project-img" style="background: linear-gradient(135deg, #0a1628 0%, #06101e 50%, #0a1f3d 100%);">
-              <div class="project-terminal">
-                <div class="terminal-bar">
-                  <span></span><span></span><span></span>
-                  <span class="terminal-title">nyaysetu-core // rag-engine</span>
+      <!-- Bento Projects Grid -->
+      <div class="bento-grid">
+
+        <!-- Project 1: SpectreOps (Flagship 1) -->
+        <div class="bento-card bento-wide glass reveal tilt-card" data-category="security">
+          <div class="bento-glow"></div>
+          <div class="bento-inner">
+            <div class="bento-content">
+              <div class="project-tags">
+                <span class="ptag featured-tag">Flagship</span>
+                <span class="ptag">Electron.js</span>
+                <span class="ptag">Node.js</span>
+                <span class="ptag">Local LLaMA 3.2</span>
+                <span class="ptag">Cybersecurity HUD</span>
+              </div>
+              <h3 class="project-title">SpectreOps // Cyber War Room &amp; Telemetry HUD</h3>
+              <p class="project-description">
+                A desktop command center featuring real-time global attack maps, macOS hardware telemetry, a 1-click Ghost Mode anti-surveillance panel (ProtonVPN, encrypted DNS, /etc/hosts adblock, MAC spoofing, webcam reset), local Ollama AI terminal, CVE tracker, and 25+ Kali tool shortcuts.
+              </p>
+              
+              <div class="project-metrics-row">
+                <div class="pmetric">
+                  <span class="pmetric-val">25+</span>
+                  <span class="pmetric-lbl">Kali Tool Integrations</span>
                 </div>
-                <div class="terminal-content">
-                  <div class="t-line"><span class="t-green">●</span> RAG Pipeline: <span class="t-green">ACTIVE</span></div>
-                  <div class="t-line"><span class="t-cyan">Corpus:</span> BNS / BNSS / BSA 2023</div>
-                  <div class="t-line"><span class="t-yellow">⚡ LPU:</span> Groq Mixtral · 480 t/s</div>
-                  <div class="t-line"><span class="t-green">✓</span> Wolfram Alpha: Connected</div>
-                  <div class="t-line"><span class="t-cyan">Draft&gt;</span> Generating Legal Notice [EN/HI/MR]...</div>
+                <div class="pmetric">
+                  <span class="pmetric-val">Offline</span>
+                  <span class="pmetric-lbl">Private AI Inference</span>
+                </div>
+                <div class="pmetric">
+                  <span class="pmetric-val">Ghost</span>
+                  <span class="pmetric-lbl">Anti-Tracking Shield</span>
+                </div>
+              </div>
+
+              <div class="project-actions">
+                <a href="https://github.com/PS282006/spectre-ops" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  <span>View Repository</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+                </a>
+              </div>
+            </div>
+
+            <div class="bento-visual">
+              <div class="terminal-mockup">
+                <div class="t-chrome">
+                  <span></span><span></span><span></span>
+                  <div class="t-title">spectre-ops-hud // live-radar</div>
+                </div>
+                <div class="t-body">
+                  <div class="t-row"><span class="t-green">●</span> <span class="t-white">SYSTEM STATUS:</span> <span class="t-green">ACTIVE DEFENSE</span></div>
+                  <div class="t-row"><span class="t-cyan">RADAR:</span> 192.168.1.0/24 subnet scanned</div>
+                  <div class="t-row"><span class="t-purple">GHOST MODE:</span> ProtonVPN + DNS-over-HTTPS</div>
+                  <div class="t-row"><span class="t-yellow">OLLAMA&gt;</span> LLaMA 3.2 ready for telemetry prompt</div>
+                  <div class="radar-circle-anim">
+                    <div class="radar-sweep"></div>
+                    <div class="radar-ping p1"></div>
+                    <div class="radar-ping p2"></div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="project-overlay">
-              <a href="https://nyay-setu-omega.vercel.app" target="_blank" class="project-link">Live Demo →</a>
-              <a href="https://github.com/PS282006/NyaySetu" target="_blank" class="project-link" style="margin-left: 10px;">View Project →</a>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-tags">
-              <span class="ptag">Next.js</span>
-              <span class="ptag">FastAPI</span>
-              <span class="ptag">RAG</span>
-              <span class="ptag">LLM</span>
-              <span class="ptag featured-tag">Featured</span>
-            </div>
-            <h3>NyaySetu — AI Legal Aid Assistant</h3>
-            <p>An AI-powered legal assistant for Indian citizens — RAG over Indian statutory law (BNS/BNSS 2023, RTI Act, Consumer Protection Act, POSH Act), Groq LPU inference, Wolfram Alpha for compensation calculations, and 1-click generation of court-ready legal notices/FIRs, in English, Hindi, and Marathi with voice support.</p>
           </div>
         </div>
 
-        <!-- Project 2: SpectreOps -->
-        <div class="project-card glass reveal featured">
-          <div class="project-img-wrap">
-            <div class="project-img" style="background: linear-gradient(135deg, #0f1a0f 0%, #001a00 50%, #0d1a0d 100%);">
-              <div class="project-terminal">
-                <div class="terminal-bar">
+        <!-- Project 2: NyaySetu (Flagship 2) -->
+        <div class="bento-card bento-wide glass reveal tilt-card" data-category="ai">
+          <div class="bento-glow"></div>
+          <div class="bento-inner reverse">
+            <div class="bento-visual">
+              <div class="terminal-mockup rag-visual">
+                <div class="t-chrome">
                   <span></span><span></span><span></span>
-                  <span class="terminal-title">parths-room</span>
+                  <div class="t-title">nyaysetu-core // statutory-rag</div>
                 </div>
-                <div class="terminal-content">
-                  <div class="t-line"><span class="t-green">●</span> System Status: <span class="t-green">ONLINE</span></div>
-                  <div class="t-line"><span class="t-cyan">CPU:</span> 34% | RAM: 8.2GB</div>
-                  <div class="t-line"><span class="t-red">⚠</span> Threats Detected: 3</div>
-                  <div class="t-line"><span class="t-green">✓</span> VPN: Active</div>
-                  <div class="t-line"><span class="t-yellow">AI&gt;</span> Analyzing network...</div>
+                <div class="t-body">
+                  <div class="t-row"><span class="t-green">●</span> <span class="t-white">LEGAL RAG PIPELINE:</span> <span class="t-green">ONLINE</span></div>
+                  <div class="t-row"><span class="t-cyan">STATUTES:</span> BNS / BNSS / BSA 2023 · RTI · POSH</div>
+                  <div class="t-row"><span class="t-yellow">LPU VELOCITY:</span> Groq Mixtral · 480 tokens/sec</div>
+                  <div class="t-row"><span class="t-purple">CALCULATOR:</span> Wolfram Alpha Compensation API</div>
+                  <div class="t-row t-white">&gt; 1-Click Generation: Court-ready Legal Notices &amp; FIRs</div>
+                  <div class="rag-flow-preview">
+                    <span class="flow-pill">User Query</span>
+                    <span class="flow-arrow">→</span>
+                    <span class="flow-pill active">ChromaDB</span>
+                    <span class="flow-arrow">→</span>
+                    <span class="flow-pill active">Groq LPU</span>
+                    <span class="flow-arrow">→</span>
+                    <span class="flow-pill">Notice.pdf</span>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="project-overlay">
-              <a href="https://github.com/PS282006/spectre-ops" target="_blank" class="project-link">View Project →</a>
+
+            <div class="bento-content">
+              <div class="project-tags">
+                <span class="ptag featured-tag">Flagship</span>
+                <span class="ptag">Next.js</span>
+                <span class="ptag">FastAPI</span>
+                <span class="ptag">RAG</span>
+                <span class="ptag">Groq LPU</span>
+                <span class="ptag">ChromaDB</span>
+              </div>
+              <h3 class="project-title">NyaySetu — AI Legal Aid &amp; Document Drafting Assistant</h3>
+              <p class="project-description">
+                Production-grade legal intelligence assistant for Indian citizens. Features sub-second RAG retrieval across modern Indian statutory law (BNS/BNSS 2023, RTI, Consumer Protection, POSH), Groq LPU acceleration, Wolfram Alpha compensation calculations, and 1-click bilingual legal notice and FIR generation with voice input.
+              </p>
+
+              <div class="project-metrics-row">
+                <div class="pmetric">
+                  <span class="pmetric-val">480 t/s</span>
+                  <span class="pmetric-lbl">Sub-Second RAG</span>
+                </div>
+                <div class="pmetric">
+                  <span class="pmetric-val">BNS 2023</span>
+                  <span class="pmetric-lbl">Updated Statutory Law</span>
+                </div>
+                <div class="pmetric">
+                  <span class="pmetric-val">3 Langs</span>
+                  <span class="pmetric-lbl">EN / HI / MR Voice</span>
+                </div>
+              </div>
+
+              <div class="project-actions">
+                <a href="https://nyay-setu-omega.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  <span>Live Demo</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+                <a href="https://github.com/PS282006/NyaySetu" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
+                  <span>GitHub</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+              </div>
             </div>
-          </div>
-          <div class="project-info">
-            <div class="project-tags">
-              <span class="ptag">Electron</span>
-              <span class="ptag">JavaScript</span>
-              <span class="ptag">AI</span>
-              <span class="ptag featured-tag">Featured</span>
-            </div>
-            <h3>SpectreOps // Cyber War Room</h3>
-            <p>A real-time desktop dashboard featuring a live global threat map, system vitals monitoring, Ghost Mode privacy toggle, AI terminal powered by LLaMA, CVE feeds, and Spotify integration. Built with Electron.js.</p>
           </div>
         </div>
 
+        <!-- Project 3: Key-Guard -->
+        <div class="bento-card glass reveal tilt-card" data-category="security">
+          <div class="bento-glow"></div>
+          <div class="project-tags">
+            <span class="ptag">Python</span>
+            <span class="ptag">DevSecOps</span>
+            <span class="ptag">CLI</span>
+          </div>
+          <h3 class="project-title">Key-Guard // Git Secret Scanner</h3>
+          <p class="project-description">
+            Automated credential leak detection engine with Shannon entropy analysis, regex pattern heuristics, and pre-commit hook shielding to prevent API keys and private tokens from leaking into commits.
+          </p>
+          <div class="bento-code-snippet">
+            <code>$ key-guard scan --pre-commit<br><span class="t-green">✔</span> 0 entropy anomalies detected<br><span class="t-green">✔</span> Commit authorized</code>
+          </div>
+          <div class="project-actions">
+            <a href="https://github.com/PS282006/Key-Guard" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
+              <span>View Repository</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+          </div>
+        </div>
 
+        <!-- Project 4: Ghost-Net -->
+        <div class="bento-card glass reveal tilt-card" data-category="security">
+          <div class="bento-glow"></div>
+          <div class="project-tags">
+            <span class="ptag">Python</span>
+            <span class="ptag">Scapy</span>
+            <span class="ptag">Networking</span>
+          </div>
+          <h3 class="project-title">Ghost-Net // ARP Sniffer &amp; MITM Defense</h3>
+          <p class="project-description">
+            Lightweight raw-packet network monitoring utility built on Scapy. Listens to promiscuous broadcast frames, resolves vendor OUIs, detects unauthorized ARP spoofing attempts, and triggers rogue host alarms.
+          </p>
+          <div class="bento-code-snippet">
+            <code>$ ghost-net --interface en0<br><span class="t-cyan">[*]</span> Sniffing ARP broadcast stream...<br><span class="t-green">✔</span> Cache intact. MITM: NEGATIVE</code>
+          </div>
+          <div class="project-actions">
+            <a href="https://github.com/PS282006/Ghost-Net" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
+              <span>View Repository</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 5: Secure-Vault -->
+        <div class="bento-card glass reveal tilt-card" data-category="security">
+          <div class="bento-glow"></div>
+          <div class="project-tags">
+            <span class="ptag">Python</span>
+            <span class="ptag">AES-256-GCM</span>
+            <span class="ptag">PBKDF2</span>
+          </div>
+          <h3 class="project-title">Secure-Vault // Zero-Knowledge File Vault</h3>
+          <p class="project-description">
+            End-to-end encrypted local storage utility using AES-256-GCM authenticated cipher with PBKDF2-HMAC-SHA256 key stretching (100,000 iterations) and cryptographically secure salt generation.
+          </p>
+          <div class="bento-code-snippet">
+            <code>$ secure-vault seal payload.tar<br><span class="t-purple">[*]</span> PBKDF2 stretched (100k iter)<br><span class="t-green">✔</span> Ciphertext: payload.enc [GCM Auth]</code>
+          </div>
+          <div class="project-actions">
+            <a href="https://github.com/PS282006/secure-vault" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
+              <span>View Repository</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 6: Auto-Sort -->
+        <div class="bento-card glass reveal tilt-card" data-category="tools">
+          <div class="bento-glow"></div>
+          <div class="project-tags">
+            <span class="ptag">Python</span>
+            <span class="ptag">Automation</span>
+            <span class="ptag">CLI</span>
+          </div>
+          <h3 class="project-title">Auto-Sort // Intelligent File Organizer</h3>
+          <p class="project-description">
+            Headless background daemon that organizes chaotic download and staging folders by MIME-type, metadata signatures, and date heuristics with safe collision resolution.
+          </p>
+          <div class="bento-code-snippet">
+            <code>$ auto-sort --watch ~/Downloads<br><span class="t-cyan">[*]</span> Daemon active: 142 items indexed<br><span class="t-green">✔</span> Sorted into categorized tree</code>
+          </div>
+          <div class="project-actions">
+            <a href="https://github.com/PS282006/Auto-Sort" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
+              <span>View Repository</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+          </div>
+        </div>
 
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- Interactive Terminal Section (CLI HUD) -->
+  <section class="terminal-section section" id="terminal">
+    <div class="container">
+      <div class="section-label">
+        <span class="label-line"></span>
+        <span>Interactive CLI HUD</span>
+      </div>
+
+      <div class="terminal-intro reveal">
+        <h2 class="section-title">Test the <span class="gradient-text">Command Line</span></h2>
+        <p>Engineers and founders: navigate this portfolio directly via shell commands. Type <span class="t-cyan code-span">help</span> to begin.</p>
+      </div>
+
+      <div class="cli-terminal-window glass reveal" id="cli-window">
+        <div class="cli-header">
+          <div class="cli-buttons">
+            <span class="btn-dot close"></span>
+            <span class="btn-dot minimize"></span>
+            <span class="btn-dot expand"></span>
+          </div>
+          <div class="cli-title">parth@defence-node:~ (zsh)</div>
+          <div class="cli-meta">v3.2.0 · interactive</div>
+        </div>
+
+        <div class="cli-body" id="cli-output">
+          <div class="cli-row welcome-row">
+            <span class="t-green">Parth Singh's Shell [Security &amp; Systems Edition]</span><br>
+            Type <span class="t-cyan">help</span> to see available commands, or try <span class="t-cyan">projects</span>, <span class="t-cyan">skills</span>, <span class="t-cyan">about</span>, <span class="t-cyan">sudo hire</span>.
+          </div>
+        </div>
+
+        <div class="cli-prompt-line">
+          <span class="cli-prompt-symbol">parth@node:~$</span>
+          <input type="text" class="cli-input" id="cli-input" autocomplete="off" spellcheck="false" placeholder="type a command (e.g. 'help')..." />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Matrix Section -->
+  <section class="skills section" id="skills">
+    <div class="container">
+      <div class="section-label">
+        <span class="label-line"></span>
+        <span>Technical Arsenal</span>
+      </div>
+
+      <h2 class="section-title reveal">Technical <span class="gradient-text">Stack</span></h2>
+
+      <div class="skills-bento-grid">
+
+        <!-- Category 1: Systems & Security -->
+        <div class="skill-group-card glass reveal">
+          <div class="sg-header">
+            <span class="sg-icon">🛡️</span>
+            <h3>Systems &amp; Security</h3>
+          </div>
+          <p class="sg-sub">Defensive tooling, network auditing &amp; cryptographic implementation.</p>
+          <div class="skill-chips">
+            <span class="skill-chip"><span class="chip-dot"></span>Python (Systems)</span>
+            <span class="skill-chip"><span class="chip-dot"></span>Scapy (Packet Crafting)</span>
+            <span class="skill-chip"><span class="chip-dot"></span>Cryptography (AES/PBKDF2)</span>
+            <span class="skill-chip"><span class="chip-dot"></span>Linux / Kali &amp; Bash</span>
+            <span class="skill-chip"><span class="chip-dot"></span>Socket Programming</span>
+            <span class="skill-chip"><span class="chip-dot"></span>Wireshark &amp; Nmap</span>
+            <span class="skill-chip"><span class="chip-dot"></span>Git Pre-commit Hooks</span>
+          </div>
+        </div>
+
+        <!-- Category 2: AI & Backend Engineering -->
+        <div class="skill-group-card glass reveal">
+          <div class="sg-header">
+            <span class="sg-icon">🧠</span>
+            <h3>AI &amp; Backend Engineering</h3>
+          </div>
+          <p class="sg-sub">High-speed inference, vector search &amp; statutory RAG architectures.</p>
+          <div class="skill-chips">
+            <span class="skill-chip"><span class="chip-dot"></span>FastAPI (REST Architecture)</span>
+            <span class="skill-chip"><span class="chip-dot"></span>RAG Pipelines</span>
+            <span class="skill-chip"><span class="chip-dot"></span>ChromaDB &amp; Vector Embeddings</span>
+            <span class="skill-chip"><span class="chip-dot"></span>Groq LPU Acceleration</span>
+            <span class="skill-chip"><span class="chip-dot"></span>Local Ollama / LLaMA 3.2</span>
+            <span class="skill-chip"><span class="chip-dot"></span>Node.js &amp; Express</span>
+            <span class="skill-chip"><span class="chip-dot"></span>Supabase &amp; PostgreSQL</span>
+          </div>
+        </div>
+
+        <!-- Category 3: Frontend & HUD Interfaces -->
+        <div class="skill-group-card glass reveal">
+          <div class="sg-header">
+            <span class="sg-icon">⚡</span>
+            <h3>Frontend &amp; Cyber HUDs</h3>
+          </div>
+          <p class="sg-sub">Desktop war rooms, telemetry dashboards &amp; modern web interfaces.</p>
+          <div class="skill-chips">
+            <span class="skill-chip"><span class="chip-dot"></span>Electron.js Desktop Apps</span>
+            <span class="skill-chip"><span class="chip-dot"></span>Next.js &amp; React</span>
+            <span class="skill-chip"><span class="chip-dot"></span>TypeScript &amp; Modern JS</span>
+            <span class="skill-chip"><span class="chip-dot"></span>HTML5 / Canvas Animations</span>
+            <span class="skill-chip"><span class="chip-dot"></span>Glassmorphism &amp; CSS System</span>
+            <span class="skill-chip"><span class="chip-dot"></span>Figma Prototyping</span>
+          </div>
+        </div>
+
+        <!-- Category 4: Engineering Workflow & DevSecOps -->
+        <div class="skill-group-card glass reveal">
+          <div class="sg-header">
+            <span class="sg-icon">🔧</span>
+            <h3>Engineering &amp; DevSecOps</h3>
+          </div>
+          <p class="sg-sub">CI/CD automation, secret shielding &amp; systems diagnostics.</p>
+          <div class="skill-chips">
+            <span class="skill-chip"><span class="chip-dot"></span>Git &amp; GitHub Actions</span>
+            <span class="skill-chip"><span class="chip-dot"></span>Secret &amp; Credential Auditing</span>
+            <span class="skill-chip"><span class="chip-dot"></span>Docker Containerization</span>
+            <span class="skill-chip"><span class="chip-dot"></span>RESTful API Architecture</span>
+            <span class="skill-chip"><span class="chip-dot"></span>Unix Process Management</span>
+            <span class="skill-chip"><span class="chip-dot"></span>Cross-Platform Packaging</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Hiring Station -->
   <section class="contact section" id="contact">
     <div class="container">
       <div class="section-label">
         <span class="label-line"></span>
-        <span>Contact</span>
+        <span>Initiate Contact</span>
       </div>
-      <div class="contact-wrap reveal">
-        <h2 class="section-title">Let's build something <span class="gradient-text">amazing</span></h2>
-        <p class="contact-sub">Open to internship and early-stage startup opportunities, remote — let's talk.</p>
 
-        <div class="contact-cards">
-          <a href="mailto:singh2006parth@gmail.com" class="contact-card glass">
-            <div class="cc-icon">✉️</div>
-            <div class="cc-info">
-              <span class="cc-label">Email</span>
-              <span class="cc-value">singh2006parth@gmail.com</span>
-            </div>
-          </a>
-          <a href="https://github.com/PS282006" target="_blank" class="contact-card glass">
+      <div class="contact-wrap glass reveal">
+        <div class="contact-header">
+          <div class="available-badge">
+            <span class="badge-dot pulse"></span>
+            <span>Immediate Availability for Internship &amp; Startup Roles</span>
+          </div>
+          <h2 class="section-title">Let's build something <span class="gradient-text">resilient</span>.</h2>
+          <p class="contact-sub">
+            Looking for an early-stage startup engineering or security role where I can take technical ownership. Based in Mumbai, ready for high-velocity remote work.
+          </p>
+        </div>
+
+        <div class="contact-cards-grid">
+          <!-- Outlook Mail Card with Copy Button -->
+          <div class="contact-card glass">
             <div class="cc-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </div>
+            <div class="cc-info">
+              <span class="cc-label">Email (Outlook)</span>
+              <a href="mailto:parth.singh2006@outlook.com" class="cc-value">parth.singh2006@outlook.com</a>
+            </div>
+            <button class="cc-action-btn copy-email-btn" data-email="parth.singh2006@outlook.com" aria-label="Copy Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+            </button>
+          </div>
+
+          <!-- LinkedIn Card -->
+          <a href="https://www.linkedin.com/in/parth-singh-ba47ab386" target="_blank" rel="noopener noreferrer" class="contact-card glass">
+            <div class="cc-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </div>
+            <div class="cc-info">
+              <span class="cc-label">LinkedIn</span>
+              <span class="cc-value">parth-singh-ba47ab386</span>
+            </div>
+            <div class="cc-arrow">↗</div>
+          </a>
+
+          <!-- GitHub Card -->
+          <a href="https://github.com/PS282006" target="_blank" rel="noopener noreferrer" class="contact-card glass">
+            <div class="cc-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
             </div>
             <div class="cc-info">
               <span class="cc-label">GitHub</span>
               <span class="cc-value">github.com/PS282006</span>
             </div>
+            <div class="cc-arrow">↗</div>
+          </a>
+
+          <!-- X (Twitter) Card -->
+          <a href="https://x.com/parth_singh2006" target="_blank" rel="noopener noreferrer" class="contact-card glass">
+            <div class="cc-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </div>
+            <div class="cc-info">
+              <span class="cc-label">X / Twitter</span>
+              <span class="cc-value">@parth_singh2006</span>
+            </div>
+            <div class="cc-arrow">↗</div>
           </a>
         </div>
 
-        <a href="mailto:singh2006parth@gmail.com" class="btn btn-primary btn-large">
-          <span>Start a Project</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        <div class="contact-cta-action">
+          <a href="mailto:parth.singh2006@outlook.com" class="btn btn-primary btn-large">
+            <span>Send Direct Message</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container">
-      <span class="mono">Built with ❤️ by Parth Singh</span>
-      <span class="mono">© 2025</span>
+    <div class="container footer-container">
+      <div class="footer-left">
+        <span class="mono">PARTH SINGH // DEFENSIVE SYSTEMS</span>
+        <span class="footer-sub">Crafted with modern HTML5, CSS3 &amp; Vanilla JavaScript</span>
+      </div>
+      <div class="footer-right">
+        <span class="mono footer-status"><span class="pulse-dot-small"></span> SYSTEM STATUS: OPERATIONAL</span>
+        <span class="mono footer-copy">© 2025 Parth Singh</span>
+      </div>
     </div>
   </footer>
 
