@@ -305,7 +305,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     about: `
 <span class="t-white">Parth Singh</span> // Security-Focused Builder &amp; Systems Engineer
-Location: Mumbai, India (UTC +5:30)
+Location: Kharghar, Navi Mumbai, India (UTC +5:30)
 Education: Pillai College of Engineering (B.E. Information Technology 2024–2028)
 Focus: Systems telemetry, counter-surveillance, statutory legal RAG, cryptographic protocols.`,
 
