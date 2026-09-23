@@ -34,48 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
-  // ─── 3. CUSTOM CURSOR & FOLLOWER (SMOOTH LERP) ────────────
-  const cursor = document.getElementById('cursor');
-  const follower = document.getElementById('cursor-follower');
 
-  if (cursor && follower && window.matchMedia('(pointer: fine)').matches) {
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let followerX = mouseX;
-    let followerY = mouseY;
-
-    window.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      cursor.style.left = `${mouseX}px`;
-      cursor.style.top = `${mouseY}px`;
-      if (!cursor.classList.contains('visible')) {
-        cursor.classList.add('visible');
-        follower.classList.add('visible');
-      }
-    });
-
-    document.addEventListener('mouseleave', () => {
-      cursor.classList.remove('visible');
-      follower.classList.remove('visible');
-    });
-
-    function renderCursor() {
-      followerX += (mouseX - followerX) * 0.18;
-      followerY += (mouseY - followerY) * 0.18;
-      follower.style.left = `${followerX}px`;
-      follower.style.top = `${followerY}px`;
-      requestAnimationFrame(renderCursor);
-    }
-    renderCursor();
-
-    // Hover states for interactive elements
-    const interactives = document.querySelectorAll('a, button, input, .hud-tab, .pfilter-btn, .tilt-card');
-    interactives.forEach(el => {
-      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-      el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
-    });
-  }
 
   // ─── 4. HERO BACKGROUND PARTICLE CANVAS ───────────────────
   const canvas = document.getElementById('hero-canvas');
@@ -322,24 +281,74 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const msgForm = document.getElementById('direct-message-form');
+  const sendBtn = document.getElementById('btn-send-message');
   if (msgForm) {
-    msgForm.addEventListener('submit', (e) => {
+    msgForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const name = document.getElementById('user-name')?.value.trim() || 'Portfolio Visitor';
-      const email = document.getElementById('user-email')?.value.trim() || '';
-      const msg = document.getElementById('user-msg')?.value.trim() || '';
+      const nameInput = document.getElementById('user-name');
+      const emailInput = document.getElementById('user-email');
+      const msgInput = document.getElementById('user-msg');
+
+      const name = nameInput?.value.trim() || 'Portfolio Visitor';
+      const email = emailInput?.value.trim() || '';
+      const msg = msgInput?.value.trim() || '';
 
       if (!msg) {
         showToast('Please enter your message!', 'info');
         return;
       }
 
-      const subject = encodeURIComponent(`Portfolio Inquiry from ${name}`);
-      const body = encodeURIComponent(`Hello Parth,\n\n${msg}\n\n---\nSender: ${name}\nEmail: ${email}`);
-      const mailtoUrl = `mailto:parth.singh2006@outlook.com?subject=${subject}&body=${body}`;
+      if (!email) {
+        showToast('Please provide your email address!', 'info');
+        return;
+      }
 
-      showToast('Opening your email client... 🚀');
-      window.location.href = mailtoUrl;
+      const originalBtnHtml = sendBtn ? sendBtn.innerHTML : '';
+      if (sendBtn) {
+        sendBtn.disabled = true;
+        sendBtn.innerHTML = `<span>SENDING...</span> <span class="spinner-inline">⏳</span>`;
+      }
+
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/parth.singh2006@outlook.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            message: msg,
+            _subject: `⚡ New Portfolio Message from ${name}`,
+            _template: 'table'
+          })
+        });
+
+        if (response.ok) {
+          showToast('Message sent directly to Parth! 🚀', 'success');
+          msgForm.reset();
+          if (sendBtn) {
+            sendBtn.innerHTML = `<span>MESSAGE SENT! ✔</span>`;
+            setTimeout(() => {
+              sendBtn.disabled = false;
+              sendBtn.innerHTML = originalBtnHtml;
+            }, 3500);
+          }
+        } else {
+          throw new Error('HTTP ' + response.status);
+        }
+      } catch (err) {
+        console.warn('Direct send fallback:', err);
+        showToast('Direct delivery unavailable. Opening email fallback...', 'info');
+        const subject = encodeURIComponent(`Portfolio Inquiry from ${name}`);
+        const body = encodeURIComponent(`Hello Parth,\n\n${msg}\n\n---\nSender: ${name}\nEmail: ${email}`);
+        window.location.href = `mailto:parth.singh2006@outlook.com?subject=${subject}&body=${body}`;
+        if (sendBtn) {
+          sendBtn.disabled = false;
+          sendBtn.innerHTML = originalBtnHtml;
+        }
+      }
     });
   }
 
@@ -386,8 +395,9 @@ Focus: Systems telemetry, counter-surveillance, statutory legal RAG, cryptograph
 
     contact: `
 <span class="t-cyan">Direct Contact:</span>
-  Email:    <span class="t-green">parth.singh2006@outlook.com</span> (Click "Copy Email" above)
-  Status:   <span class="t-green">Open to Internship &amp; Startup Roles (Remote)</span>`,
+  Email:    <span class="t-green">parth.singh2006@outlook.com</span>
+  Phone:    <a href="tel:+919137534703" class="t-cyan">+91 9137534703</a>
+  Status:   <span class="t-green">Open to Work (Internships &amp; Early-Stage Teams)</span>`,
 
     socials: `
 <span class="t-cyan">Online Presence:</span>

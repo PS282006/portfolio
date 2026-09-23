@@ -22,8 +22,9 @@
   --text-secondary: #9aa5b5;
   --text-muted: #5a6575;
 
+  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-mono: 'Space Grotesk', 'JetBrains Mono', monospace;
 
   --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -101,53 +102,8 @@ body {
   mix-blend-mode: screen;
 }
 
-/* Custom Cursor */
-.cursor {
-  width: 8px;
-  height: 8px;
-  background: var(--accent-emerald);
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.08s ease, background-color 0.2s, opacity 0.3s ease;
-  box-shadow: 0 0 12px var(--accent-emerald);
-  opacity: 0;
-}
-
-.cursor-follower {
-  width: 32px;
-  height: 32px;
-  border: 1px solid rgba(0, 255, 136, 0.35);
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: width 0.25s, height 0.25s, border-color 0.25s, transform 0.15s ease-out, opacity 0.3s ease;
-  opacity: 0;
-}
-
-.cursor.visible,
-.cursor-follower.visible {
-  opacity: 1;
-}
-
-body.cursor-hover .cursor {
-  transform: translate(-50%, -50%) scale(1.6);
-  background: var(--accent-cyan);
-}
-
-body.cursor-hover .cursor-follower {
-  width: 48px;
-  height: 48px;
-  border-color: var(--accent-cyan);
-  background: rgba(0, 212, 255, 0.05);
-}
-
 @media (pointer: coarse) {
-  .cursor, .cursor-follower, .mouse-glow { display: none; }
+  .mouse-glow { display: none; }
 }
 
 /* Layout Utilities */
@@ -184,9 +140,10 @@ body.cursor-hover .cursor-follower {
 }
 
 .section-title {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 4.5vw, 3.2rem);
   font-weight: 800;
-  line-height: 1.15;
+  line-height: 1.12;
   letter-spacing: -1px;
   margin-bottom: 20px;
 }
@@ -497,6 +454,7 @@ body.cursor-hover .cursor-follower {
 }
 
 .hero-name-main {
+  font-family: var(--font-display);
   font-size: clamp(3rem, 7vw, 5rem);
   font-weight: 800;
   line-height: 1;
@@ -1317,12 +1275,25 @@ body.cursor-hover .cursor-follower {
   color: #ffffff;
 }
 
-/* Location Card */
+/* Location / Phone Card */
 .contact-location-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 20px 24px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.contact-location-card:hover {
+  border-color: rgba(0, 255, 136, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 255, 136, 0.1);
+}
+
+.contact-location-card:hover .clc-val {
+  color: var(--accent-emerald);
 }
 
 .clc-left {
@@ -1353,6 +1324,7 @@ body.cursor-hover .cursor-follower {
   font-size: 0.92rem;
   font-weight: 600;
   color: #ffffff;
+  transition: color var(--transition-fast);
 }
 
 .clc-badge {
@@ -1590,10 +1562,27 @@ body.cursor-hover .cursor-follower {
   box-shadow: 0 4px 16px rgba(255, 85, 0, 0.35);
 }
 
-.btn-send-message:hover {
+.btn-send-message:hover:not(:disabled) {
   background: linear-gradient(135deg, #ff6600, #ff8800);
   transform: translateY(-2px);
   box-shadow: 0 6px 24px rgba(255, 85, 0, 0.5);
+}
+
+.btn-send-message:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.spinner-inline {
+  display: inline-block;
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 /* ============================================================
