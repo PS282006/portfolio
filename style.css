@@ -989,14 +989,32 @@ body.cursor-clicking .cursor-ring {
 
 .highlight-item {
   display: flex;
-  gap: 14px;
+  align-items: center;
+  gap: 16px;
   padding: 20px;
   border-radius: var(--radius-md);
 }
 
 .hl-icon {
-  font-size: 1.6rem;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+}
+
+.hl-icon img {
+  width: 48px;
+  height: 48px;
+  mix-blend-mode: screen;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(0, 255, 136, 0.4));
+  transition: transform 0.3s ease;
+}
+
+.highlight-item:hover .hl-icon img {
+  transform: scale(1.08);
 }
 
 .hl-content h4 {
@@ -1385,7 +1403,27 @@ body.cursor-clicking .cursor-ring {
   margin-bottom: 8px;
 }
 
-.sg-icon { font-size: 1.8rem; }
+.sg-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sg-icon img {
+  width: 44px;
+  height: 44px;
+  mix-blend-mode: screen;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.4));
+  transition: transform 0.3s ease;
+}
+
+.skill-group-card:hover .sg-icon img {
+  transform: scale(1.08);
+}
 
 .sg-header h3 {
   font-size: 1.18rem;
