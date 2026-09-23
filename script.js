@@ -192,44 +192,12 @@ document.addEventListener('DOMContentLoaded', () => {
       magnetics.forEach(el => {
         el.addEventListener('mouseenter', () => {
           targetMagnetic = el;
-          document.body.classList.add('cursor-hover');
         });
         el.addEventListener('mouseleave', () => {
           targetMagnetic = null;
-          document.body.classList.remove('cursor-hover');
         });
       });
 
-      // Project Cards (View Badge)
-      const projectCards = document.querySelectorAll('.bento-card');
-      projectCards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-          document.body.classList.add('cursor-view');
-          if (cursorLabel) cursorLabel.textContent = 'EXPLORE ↗';
-        });
-        card.addEventListener('mouseleave', () => {
-          document.body.classList.remove('cursor-view');
-          if (cursorLabel) cursorLabel.textContent = '';
-        });
-      });
-
-      // Custom data-cursor labels
-      const labeledElements = document.querySelectorAll('[data-cursor]');
-      labeledElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-          const label = el.getAttribute('data-cursor');
-          if (label && cursorLabel) {
-            cursorLabel.textContent = label;
-            document.body.classList.add('cursor-hover');
-          }
-        });
-        el.addEventListener('mouseleave', () => {
-          if (cursorLabel && !document.body.classList.contains('cursor-view')) {
-            cursorLabel.textContent = '';
-          }
-          document.body.classList.remove('cursor-hover');
-        });
-      });
     }
     bindCursorContexts();
   }
