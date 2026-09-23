@@ -412,34 +412,175 @@ document.addEventListener('DOMContentLoaded', () => {
     el.addEventListener('mouseenter', () => scrambler.scramble());
   });
 
-  // ─── 8. SCROLL COUNT-UP IMPACT STATS ODOMETER ─────────────
-  const statNumbers = document.querySelectorAll('.stat-num');
-  let statsTriggered = false;
+  // ─── 8. DYNAMIC ROLE ROTATOR ───────────────────────────────
+  const roleItems = document.querySelectorAll('#role-rotator .role-item');
+  if (roleItems.length > 0) {
+    let currentRoleIdx = 0;
+    setInterval(() => {
+      roleItems[currentRoleIdx].classList.remove('active');
+      currentRoleIdx = (currentRoleIdx + 1) % roleItems.length;
+      roleItems[currentRoleIdx].classList.add('active');
+    }, 2800);
+  }
 
-  const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !statsTriggered) {
-        statsTriggered = true;
-        statNumbers.forEach(stat => {
-          const target = parseInt(stat.getAttribute('data-target') || '0', 10);
-          let current = 0;
-          const increment = Math.max(1, Math.ceil(target / 45));
-          const stepTimer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-              stat.textContent = target;
-              clearInterval(stepTimer);
-            } else {
-              stat.textContent = current;
-            }
-          }, 24);
+  // ─── 9. KINETIC BOUNCING NAME ENGINE ───────────────────────
+  const kineticLetters = document.querySelectorAll('.k-letter');
+  const kineticWrap = document.getElementById('kinetic-name');
+
+  function triggerLetterBounce(letterEl, delay = 0) {
+    setTimeout(() => {
+      letterEl.classList.remove('bouncing');
+      void letterEl.offsetWidth; // trigger reflow
+      letterEl.classList.add('bouncing');
+      setTimeout(() => letterEl.classList.remove('bouncing'), 700);
+    }, delay);
+  }
+
+  function triggerWaveBounce() {
+    kineticLetters.forEach((letter, idx) => {
+      triggerLetterBounce(letter, idx * 55);
+    });
+  }
+
+  // Initial harmonic wave on load
+  setTimeout(triggerWaveBounce, 600);
+
+  // Click on container or individual letters
+  if (kineticWrap) {
+    kineticWrap.addEventListener('click', (e) => {
+      sound.playClick();
+      if (e.target && e.target.classList.contains('k-letter')) {
+        triggerLetterBounce(e.target, 0);
+        const clickedIdx = Array.from(kineticLetters).indexOf(e.target);
+        kineticLetters.forEach((letter, idx) => {
+          if (letter !== e.target) {
+            const dist = Math.abs(idx - clickedIdx);
+            triggerLetterBounce(letter, dist * 60);
+          }
         });
+      } else {
+        triggerWaveBounce();
       }
     });
-  }, { threshold: 0.25 });
+  }
 
-  const statsSection = document.getElementById('stats');
-  if (statsSection) statsObserver.observe(statsSection);
+  // Hover on letters gives instant spring bounce
+  kineticLetters.forEach(letter => {
+    letter.addEventListener('mouseenter', () => {
+      if (!letter.classList.contains('bouncing')) {
+        triggerLetterBounce(letter, 0);
+      }
+    });
+  });
+
+  // Playful periodic bounce of random letters to keep hero vibrant & alive
+  setInterval(() => {
+    if (kineticLetters.length > 0 && Math.random() > 0.25) {
+      const randomIdx = Math.floor(Math.random() * kineticLetters.length);
+      triggerLetterBounce(kineticLetters[randomIdx], 0);
+    }
+  }, 6000);
+
+  // ─── 10. 3D INTERACTIVE AVATAR, SPEECH & PHOTO TOGGLE ──────
+  const avatarCard = document.getElementById('avatar-interactive-card');
+  const avatarFloat = document.getElementById('avatar-float');
+  const avatarHighlight = document.getElementById('avatar-highlight');
+  const avatarSpeech = document.getElementById('avatar-speech');
+  const speechText = document.getElementById('speech-text');
+  const btnShow3d = document.getElementById('btn-show-3d');
+  const btnShowPhoto = document.getElementById('btn-show-photo');
+  const layer3d = document.getElementById('layer-3d');
+  const layerPhoto = document.getElementById('layer-photo');
+  const avatarTapPill = document.getElementById('avatar-tap-pill');
+  const avatarDisplayFrame = document.getElementById('avatar-display-frame');
+
+  const parthDialogues = [
+    "Hey! I'm Parth 👋 Full-Stack Dev & Security Researcher.",
+    "I craft resilient web apps, sub-second RAG systems & hardened APIs.",
+    "Click any letter of my name to see them spring & bounce! ⚡",
+    "Switch above to 'REAL PHOTO' to see the engineer behind the code!",
+    "Got an ambitious product idea? Let's build something epic! 🚀",
+    "Try typing 'sudo hire' or 'neofetch' in the terminal below! 💻"
+  ];
+  let dialogueIdx = 0;
+
+  function cycleDialogue() {
+    dialogueIdx = (dialogueIdx + 1) % parthDialogues.length;
+    if (avatarSpeech && speechText) {
+      avatarSpeech.style.transform = 'translateY(-10px) scale(0.95)';
+      avatarSpeech.style.opacity = '0.5';
+      setTimeout(() => {
+        speechText.textContent = parthDialogues[dialogueIdx];
+        avatarSpeech.style.transform = 'translateY(0) scale(1)';
+        avatarSpeech.style.opacity = '1';
+      }, 150);
+      sound.playClick();
+    }
+  }
+
+  if (avatarCard) {
+    // 3D Parallax Tilt on Mouse Move
+    avatarCard.addEventListener('mousemove', (e) => {
+      const rect = avatarCard.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateX = ((centerY - y) / centerY) * 14;
+      const rotateY = ((x - centerX) / centerX) * 14;
+
+      if (avatarFloat) {
+        avatarFloat.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateZ(16px) scale(1.02)`;
+      }
+
+      if (avatarHighlight) {
+        const percentX = (x / rect.width) * 100;
+        const percentY = (y / rect.height) * 100;
+        avatarHighlight.style.background = `radial-gradient(circle at ${percentX.toFixed(1)}% ${percentY.toFixed(1)}%, rgba(0, 255, 136, 0.28) 0%, transparent 65%)`;
+      }
+    });
+
+    avatarCard.addEventListener('mouseleave', () => {
+      if (avatarFloat) {
+        avatarFloat.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px) scale(1)';
+      }
+      if (avatarHighlight) {
+        avatarHighlight.style.background = 'radial-gradient(circle at 50% 40%, rgba(0, 255, 136, 0.18) 0%, transparent 60%)';
+      }
+    });
+  }
+
+  // Clicking speech bubble, tap pill, or avatar frame cycles speech
+  [avatarSpeech, avatarTapPill, avatarDisplayFrame].forEach(el => {
+    if (el) {
+      el.addEventListener('click', (e) => {
+        if (e.target.closest('.avatar-view-toggle')) return;
+        cycleDialogue();
+      });
+    }
+  });
+
+  // Toggle between 3D Avatar and Real Photo
+  if (btnShow3d && btnShowPhoto && layer3d && layerPhoto) {
+    btnShow3d.addEventListener('click', (e) => {
+      e.stopPropagation();
+      btnShow3d.classList.add('active');
+      btnShowPhoto.classList.remove('active');
+      layer3d.classList.add('active');
+      layerPhoto.classList.remove('active');
+      sound.playClick();
+    });
+
+    btnShowPhoto.addEventListener('click', (e) => {
+      e.stopPropagation();
+      btnShowPhoto.classList.add('active');
+      btnShow3d.classList.remove('active');
+      layerPhoto.classList.add('active');
+      layer3d.classList.remove('active');
+      sound.playClick();
+    });
+  }
 
   // ─── 9. FLAGSHIP ARCHITECTURE TAB SWITCHERS ───────────────
   const archButtons = document.querySelectorAll('.arch-tab-btn');
@@ -742,52 +883,57 @@ Send an email directly to <span class="t-cyan">parth.singh2006@outlook.com</span
                     <span class="t-white">Inference:</span> Groq LPU (480 t/s) + Local Ollama`
   };
 
+  function executeCliCommand(rawCmd) {
+    if (!cliOutput) return;
+    const cmd = rawCmd.toLowerCase();
+
+    if (rawCmd) {
+      cliCommandsHistory.push(rawCmd);
+      historyIndex = cliCommandsHistory.length;
+    }
+
+    sound.playClick();
+
+    // Print entered command
+    const cmdEcho = document.createElement('div');
+    cmdEcho.className = 'cli-row';
+    cmdEcho.innerHTML = `<span class="t-green">parth@node:~$</span> <span class="t-white">${rawCmd}</span>`;
+    cliOutput.appendChild(cmdEcho);
+
+    if (cmd === 'clear') {
+      cliOutput.innerHTML = '';
+    } else if (cmd === 'matrix') {
+      const res = document.createElement('div');
+      res.className = 'cli-row';
+      res.innerHTML = terminalResponses.matrix;
+      cliOutput.appendChild(res);
+    } else if (cmd === 'audio') {
+      sound.toggle();
+      const res = document.createElement('div');
+      res.className = 'cli-row';
+      res.innerHTML = terminalResponses.audio;
+      cliOutput.appendChild(res);
+    } else if (terminalResponses[cmd]) {
+      const res = document.createElement('div');
+      res.className = 'cli-row';
+      res.innerHTML = terminalResponses[cmd];
+      cliOutput.appendChild(res);
+    } else if (rawCmd) {
+      const notFound = document.createElement('div');
+      notFound.className = 'cli-row';
+      notFound.innerHTML = `<span class="t-purple">zsh: command not found: ${rawCmd}</span>. Type <span class="t-cyan">help</span> for commands.`;
+      cliOutput.appendChild(notFound);
+    }
+
+    if (cliInput) cliInput.value = '';
+    cliOutput.scrollTop = cliOutput.scrollHeight;
+  }
+
   if (cliInput && cliOutput) {
     cliInput.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
         const rawCmd = cliInput.value.trim();
-        const cmd = rawCmd.toLowerCase();
-
-        if (rawCmd) {
-          cliCommandsHistory.push(rawCmd);
-          historyIndex = cliCommandsHistory.length;
-        }
-
-        sound.playClick();
-
-        // Print entered command
-        const cmdEcho = document.createElement('div');
-        cmdEcho.className = 'cli-row';
-        cmdEcho.innerHTML = `<span class="t-green">parth@node:~$</span> <span class="t-white">${rawCmd}</span>`;
-        cliOutput.appendChild(cmdEcho);
-
-        if (cmd === 'clear') {
-          cliOutput.innerHTML = '';
-        } else if (cmd === 'matrix') {
-          const res = document.createElement('div');
-          res.className = 'cli-row';
-          res.innerHTML = terminalResponses.matrix;
-          cliOutput.appendChild(res);
-        } else if (cmd === 'audio') {
-          sound.toggle();
-          const res = document.createElement('div');
-          res.className = 'cli-row';
-          res.innerHTML = terminalResponses.audio;
-          cliOutput.appendChild(res);
-        } else if (terminalResponses[cmd]) {
-          const res = document.createElement('div');
-          res.className = 'cli-row';
-          res.innerHTML = terminalResponses[cmd];
-          cliOutput.appendChild(res);
-        } else if (rawCmd) {
-          const notFound = document.createElement('div');
-          notFound.className = 'cli-row';
-          notFound.innerHTML = `<span class="t-purple">zsh: command not found: ${rawCmd}</span>. Type <span class="t-cyan">help</span> for commands.`;
-          cliOutput.appendChild(notFound);
-        }
-
-        cliInput.value = '';
-        cliOutput.scrollTop = cliOutput.scrollHeight;
+        executeCliCommand(rawCmd);
       } else if (e.key === 'ArrowUp') {
         if (cliCommandsHistory.length > 0 && historyIndex > 0) {
           historyIndex--;
@@ -802,6 +948,19 @@ Send an email directly to <span class="t-cyan">parth.singh2006@outlook.com</span
           cliInput.value = '';
         }
       }
+    });
+
+    // Wire up one-click quick chips
+    document.querySelectorAll('.cli-chip').forEach(chip => {
+      chip.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const cmd = chip.getAttribute('data-cmd');
+        if (cmd) {
+          if (cliInput) cliInput.value = cmd;
+          executeCliCommand(cmd);
+          if (cliInput) cliInput.focus();
+        }
+      });
     });
 
     document.getElementById('cli-window')?.addEventListener('click', () => {

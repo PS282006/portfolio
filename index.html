@@ -71,25 +71,52 @@
       <div class="hero-content">
         <div class="hero-badge">
           <span class="badge-dot pulse"></span>
-          <span>Open to Work</span>
+          <span>Open to Work · Software Engineering &amp; Internships</span>
         </div>
 
         <h1 class="hero-name-title">
-          <span class="hero-name-main">PARTH <span class="gradient-text">SINGH</span></span>
-          <span class="hero-role-sub">Security-Focused Builder &amp; Systems Engineer</span>
+          <span class="hero-greeting">Hi, I'm</span>
+          <div class="kinetic-name-wrap" id="kinetic-name" data-cursor="BOUNCE" title="Click anywhere to trigger a letter wave!">
+            <span class="kinetic-word first-word">
+              <span class="k-letter" data-letter="P">P</span>
+              <span class="k-letter" data-letter="A">A</span>
+              <span class="k-letter" data-letter="R">R</span>
+              <span class="k-letter" data-letter="T">T</span>
+              <span class="k-letter" data-letter="H">H</span>
+            </span>
+            <span class="kinetic-space">&nbsp;</span>
+            <span class="kinetic-word last-word">
+              <span class="k-letter gradient-letter" data-letter="S">S</span>
+              <span class="k-letter gradient-letter" data-letter="I">I</span>
+              <span class="k-letter gradient-letter" data-letter="N">N</span>
+              <span class="k-letter gradient-letter" data-letter="G">G</span>
+              <span class="k-letter gradient-letter" data-letter="H">H</span>
+            </span>
+          </div>
         </h1>
 
+        <!-- Dynamic Role Rotator -->
+        <div class="hero-role-wrapper">
+          <span class="role-lead">Specializing in</span>
+          <div class="role-rotator" id="role-rotator">
+            <span class="role-item active">⚡ Full-Stack Web Development</span>
+            <span class="role-item">🛡️ Cybersecurity &amp; Systems Defense</span>
+            <span class="role-item">🧠 AI &amp; Sub-Second RAG Architectures</span>
+            <span class="role-item">💻 Desktop Command Centers &amp; APIs</span>
+          </div>
+        </div>
+
         <p class="hero-bio-text">
-          Building resilient defensive systems, AI-powered legal &amp; threat intelligence software, and low-level security tools. Based in Kharghar, Navi Mumbai.
+          B.Tech IT undergraduate at Pillai College of Engineering building production-grade full-stack web applications, defensive security automation, and AI-powered intelligence systems.
         </p>
 
         <div class="hero-actions">
           <a href="#projects" class="btn btn-primary magnetic-target" data-cursor="PROJECTS">
-            <span>Explore Projects</span>
+            <span>Explore Flagship Work</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
           </a>
           <a href="#contact" class="btn btn-ghost magnetic-target" data-cursor="CONTACT">
-            <span>Get In Touch</span>
+            <span>Initiate Contact</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
           </a>
         </div>
@@ -110,29 +137,53 @@
         </div>
       </div>
 
-      <!-- Right Column: Sexy Portrait Photo Bento Card -->
+      <!-- Right Column: Interactive 3D Avatar Card with Parallax & Photo Toggle -->
       <div class="hero-photo-wrap">
-        <div class="hero-photo-card glass tilt-card" data-cursor="PORTRAIT">
-          <div class="photo-glow"></div>
-          <div class="photo-container">
-            <img src="images/parth.jpg" alt="Parth Singh - Security-Focused Builder &amp; Systems Engineer" class="hero-portrait" loading="eager" fetchpriority="high" />
-            <div class="photo-overlay-gradient"></div>
-            
-            <!-- Floating Cyber Badge -->
-            <div class="photo-floating-pill">
-              <span class="badge-dot pulse"></span>
-              <span>Systems &amp; Offensive Security</span>
+        <!-- Interactive Speech Bubble -->
+        <div class="avatar-speech-bubble" id="avatar-speech">
+          <span class="speech-text" id="speech-text">Hey, I'm Parth! 👋 Tap me to interact!</span>
+          <div class="speech-arrow"></div>
+        </div>
+
+        <div class="hero-avatar-card glass tilt-card" id="avatar-interactive-card" data-cursor="AVATAR">
+          <div class="avatar-glow"></div>
+
+          <!-- View Switcher: 3D Avatar vs Real Photo -->
+          <div class="avatar-view-toggle">
+            <button type="button" class="toggle-view-btn active" id="btn-show-3d" data-view="3d">
+              <span>✨ 3D AVATAR</span>
+            </button>
+            <button type="button" class="toggle-view-btn" id="btn-show-photo" data-view="photo">
+              <span>👤 REAL PHOTO</span>
+            </button>
+          </div>
+
+          <div class="avatar-display-frame" id="avatar-display-frame">
+            <!-- 3D Avatar Layer -->
+            <div class="avatar-layer active" id="layer-3d">
+              <div class="avatar-float-wrap" id="avatar-float">
+                <img src="images/parth-3d-avatar.jpg" alt="Parth Singh - 3D Interactive Developer Avatar" class="avatar-img" id="avatar-img" />
+                <div class="avatar-highlight-overlay" id="avatar-highlight"></div>
+              </div>
+            </div>
+
+            <!-- Real Photo Layer -->
+            <div class="avatar-layer" id="layer-photo">
+              <img src="images/parth.jpg" alt="Parth Singh - Real Portrait" class="real-photo-img" />
             </div>
           </div>
-          
+
           <!-- Photo Card Bottom Bar -->
-          <div class="photo-card-footer">
+          <div class="avatar-card-footer">
             <div class="pcf-left">
               <span class="pcf-name">PARTH SINGH</span>
-              <span class="pcf-role">B.Tech IT · Pillai College of Eng.</span>
+              <span class="pcf-role">Full-Stack · B.Tech IT '28</span>
             </div>
             <div class="pcf-right">
-              <span class="pcf-loc"><span class="loc-pin">📍</span> Navi Mumbai</span>
+              <span class="tap-hint-pill" id="avatar-tap-pill">
+                <span class="tap-dot"></span>
+                <span>TAP ME</span>
+              </span>
             </div>
           </div>
         </div>
@@ -140,28 +191,127 @@
     </div>
   </section>
 
-  <!-- Live Stats Impact Strip -->
-  <section class="stats-strip" id="stats">
+  <!-- Infinite Tech Stack Glow Marquee -->
+  <div class="tech-marquee-section">
+    <div class="marquee-track">
+      <div class="marquee-content">
+        <span class="m-pill"><span class="m-dot cyan"></span>Next.js 14</span>
+        <span class="m-pill"><span class="m-dot emerald"></span>React</span>
+        <span class="m-pill"><span class="m-dot blue"></span>TypeScript</span>
+        <span class="m-pill"><span class="m-dot yellow"></span>Python</span>
+        <span class="m-pill"><span class="m-dot emerald"></span>FastAPI</span>
+        <span class="m-pill"><span class="m-dot cyan"></span>Tailwind CSS</span>
+        <span class="m-pill"><span class="m-dot purple"></span>ChromaDB</span>
+        <span class="m-pill"><span class="m-dot blue"></span>Docker</span>
+        <span class="m-pill"><span class="m-dot emerald"></span>Scapy Packet Sniffing</span>
+        <span class="m-pill"><span class="m-dot cyan"></span>PostgreSQL</span>
+        <span class="m-pill"><span class="m-dot purple"></span>Electron.js</span>
+        <span class="m-pill"><span class="m-dot yellow"></span>AES-256-GCM</span>
+        <span class="m-pill"><span class="m-dot emerald"></span>Groq LPU (480 t/s)</span>
+        <span class="m-pill"><span class="m-dot cyan"></span>Linux / Kali</span>
+        <span class="m-pill"><span class="m-dot blue"></span>Node.js</span>
+        <span class="m-pill"><span class="m-dot purple"></span>Ollama LLaMA 3.2</span>
+      </div>
+      <div class="marquee-content" aria-hidden="true">
+        <span class="m-pill"><span class="m-dot cyan"></span>Next.js 14</span>
+        <span class="m-pill"><span class="m-dot emerald"></span>React</span>
+        <span class="m-pill"><span class="m-dot blue"></span>TypeScript</span>
+        <span class="m-pill"><span class="m-dot yellow"></span>Python</span>
+        <span class="m-pill"><span class="m-dot emerald"></span>FastAPI</span>
+        <span class="m-pill"><span class="m-dot cyan"></span>Tailwind CSS</span>
+        <span class="m-pill"><span class="m-dot purple"></span>ChromaDB</span>
+        <span class="m-pill"><span class="m-dot blue"></span>Docker</span>
+        <span class="m-pill"><span class="m-dot emerald"></span>Scapy Packet Sniffing</span>
+        <span class="m-pill"><span class="m-dot cyan"></span>PostgreSQL</span>
+        <span class="m-pill"><span class="m-dot purple"></span>Electron.js</span>
+        <span class="m-pill"><span class="m-dot yellow"></span>AES-256-GCM</span>
+        <span class="m-pill"><span class="m-dot emerald"></span>Groq LPU (480 t/s)</span>
+        <span class="m-pill"><span class="m-dot cyan"></span>Linux / Kali</span>
+        <span class="m-pill"><span class="m-dot blue"></span>Node.js</span>
+        <span class="m-pill"><span class="m-dot purple"></span>Ollama LLaMA 3.2</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Core Engineering Capabilities (Pillars 01 — 04) -->
+  <section class="pillars-section" id="capabilities">
     <div class="container">
-      <div class="stats-grid glass reveal">
-        <div class="stat-card">
-          <div class="stat-val-row"><span class="stat-num" data-target="6">0</span><span class="stat-unit">+</span></div>
-          <div class="stat-desc">Security &amp; AI Systems Built</div>
+      <div class="section-label">
+        <span class="label-line"></span>
+        <span>Core Disciplines</span>
+      </div>
+      <div class="pillars-header">
+        <h2 class="section-title">What I Bring to the <span class="gradient-text">Table</span></h2>
+        <p class="section-sub">Full-cycle engineering execution — from low-level network packets to high-throughput cloud web applications.</p>
+      </div>
+
+      <div class="pillars-grid">
+        <!-- 01 Full Stack -->
+        <div class="pillar-card glass tilt-card" data-cursor="PILLAR">
+          <div class="pillar-num">01</div>
+          <div class="pillar-badge">END-TO-END APPS</div>
+          <h3 class="pillar-title">Full-Stack Development</h3>
+          <p class="pillar-desc">
+            Architecting responsive modern web applications with Next.js 14, React, and TypeScript, backed by high-performance asynchronous REST &amp; WebSocket services in FastAPI and Node.js.
+          </p>
+          <div class="pillar-stack">
+            <span>Next.js 14</span>
+            <span>React</span>
+            <span>FastAPI</span>
+            <span>PostgreSQL</span>
+            <span>Tailwind</span>
+          </div>
         </div>
-        <div class="stat-divider"></div>
-        <div class="stat-card">
-          <div class="stat-val-row"><span class="stat-num" data-target="480">0</span><span class="stat-unit">t/s</span></div>
-          <div class="stat-desc">Statutory RAG Retrieval Speed</div>
+
+        <!-- 02 Cybersecurity -->
+        <div class="pillar-card glass tilt-card" data-cursor="PILLAR">
+          <div class="pillar-num">02</div>
+          <div class="pillar-badge">DEFENSIVE HARDENING</div>
+          <h3 class="pillar-title">Cybersecurity &amp; Defense</h3>
+          <p class="pillar-desc">
+            Low-level promiscuous packet capture with Scapy, automated pre-commit Shannon entropy secret leak scanning, and authenticated zero-knowledge AES-256-GCM vaults.
+          </p>
+          <div class="pillar-stack">
+            <span>Scapy</span>
+            <span>Shannon Entropy</span>
+            <span>AES-256-GCM</span>
+            <span>Kali / Linux</span>
+            <span>Git Hooks</span>
+          </div>
         </div>
-        <div class="stat-divider"></div>
-        <div class="stat-card">
-          <div class="stat-val-row"><span class="stat-num" data-target="100">0</span><span class="stat-unit">k</span></div>
-          <div class="stat-desc">PBKDF2 Cryptographic Iterations</div>
+
+        <!-- 03 AI & RAG -->
+        <div class="pillar-card glass tilt-card" data-cursor="PILLAR">
+          <div class="pillar-num">03</div>
+          <div class="pillar-badge">SUB-SECOND RETRIEVAL</div>
+          <h3 class="pillar-title">Applied AI &amp; RAG Systems</h3>
+          <p class="pillar-desc">
+            Engineering statutory RAG architectures retrieving over legal corpuses at 480 tokens/sec via Groq LPU inference, ChromaDB vector indexing, and local offline LLaMA 3.2.
+          </p>
+          <div class="pillar-stack">
+            <span>Groq LPU</span>
+            <span>ChromaDB</span>
+            <span>Statutory RAG</span>
+            <span>LLaMA 3.2</span>
+            <span>FastAPI</span>
+          </div>
         </div>
-        <div class="stat-divider"></div>
-        <div class="stat-card">
-          <div class="stat-val-row"><span class="stat-num" data-target="100">0</span><span class="stat-unit">%</span></div>
-          <div class="stat-desc">Hands-On Production Code</div>
+
+        <!-- 04 Desktop HUDs -->
+        <div class="pillar-card glass tilt-card" data-cursor="PILLAR">
+          <div class="pillar-num">04</div>
+          <div class="pillar-badge">NATIVE HUDS</div>
+          <h3 class="pillar-title">Desktop War Rooms &amp; UI</h3>
+          <p class="pillar-desc">
+            Architecting cross-platform desktop command centers with Electron.js, real-time threat intelligence feeds, macOS hardware telemetry, and 1-click anti-tracking shields.
+          </p>
+          <div class="pillar-stack">
+            <span>Electron.js</span>
+            <span>macOS Vitals</span>
+            <span>CVE Feeds</span>
+            <span>WebGL / Canvas</span>
+            <span>Ghost Shield</span>
+          </div>
         </div>
       </div>
     </div>
@@ -544,7 +694,18 @@
 
       <div class="terminal-intro reveal">
         <h2 class="section-title">Test the <span class="gradient-text">Command Line</span></h2>
-        <p>Engineers and founders: navigate this portfolio directly via shell commands. Type <span class="t-cyan code-span">help</span> to begin.</p>
+        <p>Engineers and founders: navigate this portfolio directly via shell commands. Type <span class="t-cyan code-span">help</span> to begin, or tap any quick command below.</p>
+
+        <div class="cli-quick-chips">
+          <span class="chips-label">Quick Run:</span>
+          <button type="button" class="cli-chip" data-cmd="about">about</button>
+          <button type="button" class="cli-chip" data-cmd="skills">skills</button>
+          <button type="button" class="cli-chip" data-cmd="projects">projects</button>
+          <button type="button" class="cli-chip" data-cmd="contact">contact</button>
+          <button type="button" class="cli-chip" data-cmd="neofetch">neofetch</button>
+          <button type="button" class="cli-chip" data-cmd="sudo hire">sudo hire</button>
+          <button type="button" class="cli-chip" data-cmd="clear">clear</button>
+        </div>
       </div>
 
       <div class="cli-terminal-window glass reveal" id="cli-window">
