@@ -21,6 +21,15 @@
 </head>
 <body>
 
+  <!-- High-Precision Cyber Magnetic Cursor -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring">
+    <span class="cursor-label" id="cursor-label"></span>
+  </div>
+
+  <!-- Fullscreen Matrix Digital Rain Mode (Easter Egg) -->
+  <canvas class="matrix-canvas" id="matrix-canvas"></canvas>
+
   <!-- Top Scroll Progress Bar -->
   <div class="scroll-progress-bar" id="scroll-progress"></div>
 
@@ -33,7 +42,7 @@
   <!-- Navigation -->
   <nav class="nav" id="nav">
     <div class="nav-inner container">
-      <a href="#home" class="nav-logo" aria-label="Home">
+      <a href="#home" class="nav-logo" aria-label="Home" data-cursor="HOME">
         <span class="nav-logo-name">PARTH <span class="nav-accent">SINGH</span></span>
       </a>
 
@@ -43,17 +52,62 @@
       </div>
 
       <ul class="nav-links">
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="#about" class="nav-link" data-cursor="ABOUT">About</a></li>
+        <li><a href="#journey" class="nav-link" data-cursor="TIMELINE">Journey</a></li>
+        <li><a href="#projects" class="nav-link" data-cursor="PROJECTS">Projects</a></li>
+        <li><a href="#terminal" class="nav-link" data-cursor="TERMINAL">CLI</a></li>
+        <li><a href="#skills" class="nav-link" data-cursor="SKILLS">Skills</a></li>
+        <li><a href="#contact" class="nav-link" data-cursor="CONTACT">Contact</a></li>
       </ul>
 
-      <a href="#contact" class="btn btn-primary nav-contact-btn">
-        <span>Get in Touch</span>
-      </a>
+      <div class="nav-actions-group">
+        <!-- Audio Synthesizer Waveform Toggle -->
+        <button class="sound-toggle-btn magnetic-target" id="sound-toggle" aria-label="Toggle Sound Effects" title="Sound FX (Press 'M')">
+          <span class="sound-bars">
+            <span class="sbar"></span><span class="sbar"></span><span class="sbar"></span><span class="sbar"></span>
+          </span>
+          <span class="sound-text">SFX: <span id="sound-state-text">OFF</span></span>
+        </button>
+
+        <!-- Command Palette Trigger Button -->
+        <button class="cmd-trigger-btn magnetic-target" id="cmd-trigger" aria-label="Open Command Menu" title="Command Menu (Cmd+K / Ctrl+K)">
+          <span class="cmd-k-icon">⌘K</span>
+          <span class="cmd-label">MENU</span>
+        </button>
+
+        <a href="#contact" class="btn btn-primary nav-contact-btn magnetic-target" data-cursor="CONTACT">
+          <span>Get in Touch</span>
+        </a>
+      </div>
     </div>
   </nav>
+
+  <!-- Live Defense Telemetry Ticker Bar -->
+  <div class="telemetry-bar" id="telemetry-bar">
+    <div class="container telemetry-inner">
+      <div class="telemetry-item">
+        <span class="telemetry-pulse"></span>
+        <span class="t-label">NODE:</span>
+        <span class="t-val text-emerald">ACTIVE DEFENSE</span>
+      </div>
+      <div class="telemetry-item">
+        <span class="t-label">BASE:</span>
+        <span class="t-val">KHARGHAR, NAVI MUMBAI</span>
+      </div>
+      <div class="telemetry-item">
+        <span class="t-label">IST CLOCK:</span>
+        <span class="t-val text-cyan" id="telemetry-clock">--:--:-- IST</span>
+      </div>
+      <div class="telemetry-item hide-mobile">
+        <span class="t-label">SYS_AUDIT:</span>
+        <span class="t-val">100% NOMINAL</span>
+      </div>
+      <div class="telemetry-item hide-mobile">
+        <span class="t-label">STATUS:</span>
+        <span class="t-val text-yellow">OPEN TO WORK</span>
+      </div>
+    </div>
+  </div>
 
   <!-- Hero Section -->
   <section class="hero" id="home">
@@ -69,7 +123,7 @@
         </div>
 
         <h1 class="hero-name-title reveal">
-          <span class="hero-name-main">PARTH <span class="gradient-text">SINGH</span></span>
+          <span class="hero-name-main" data-scramble="PARTH SINGH">PARTH <span class="gradient-text">SINGH</span></span>
           <span class="hero-role-sub">Security-Focused Builder &amp; Systems Engineer</span>
         </h1>
 
@@ -78,26 +132,30 @@
         </p>
 
         <div class="hero-actions reveal">
-          <a href="#projects" class="btn btn-primary">
+          <a href="#projects" class="btn btn-primary magnetic-target" data-cursor="PROJECTS">
             <span>Explore Projects</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
           </a>
-          <a href="#contact" class="btn btn-ghost">
+          <a href="#contact" class="btn btn-ghost magnetic-target" data-cursor="CONTACT">
             <span>Get In Touch</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
           </a>
+          <button type="button" class="btn btn-cyber-cmd magnetic-target" id="hero-cmd-btn" data-cursor="MENU">
+            <span class="cmd-k-icon">⌘K</span>
+            <span>Commands</span>
+          </button>
         </div>
 
         <div class="hero-social-strip reveal">
-          <a href="https://github.com/PS282006" target="_blank" rel="noopener noreferrer" class="hero-social-pill" aria-label="GitHub">
+          <a href="https://github.com/PS282006" target="_blank" rel="noopener noreferrer" class="hero-social-pill magnetic-target" aria-label="GitHub" data-cursor="GITHUB">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
             <span>GitHub</span>
           </a>
-          <a href="https://www.linkedin.com/in/parth-singh-ba47ab386" target="_blank" rel="noopener noreferrer" class="hero-social-pill" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/parth-singh-ba47ab386" target="_blank" rel="noopener noreferrer" class="hero-social-pill magnetic-target" aria-label="LinkedIn" data-cursor="LINKEDIN">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
             <span>LinkedIn</span>
           </a>
-          <a href="https://x.com/parth_singh2006" target="_blank" rel="noopener noreferrer" class="hero-social-pill" aria-label="X / Twitter">
+          <a href="https://x.com/parth_singh2006" target="_blank" rel="noopener noreferrer" class="hero-social-pill magnetic-target" aria-label="X / Twitter" data-cursor="TWITTER">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             <span>@parth_singh2006</span>
           </a>
@@ -106,12 +164,19 @@
 
       <!-- Right Column: Sexy Portrait Photo Bento Card -->
       <div class="hero-photo-wrap reveal">
-        <div class="hero-photo-card glass tilt-card">
+        <div class="hero-photo-card glass tilt-card" data-cursor="PORTRAIT">
+          <div class="border-beam"></div>
           <div class="photo-glow"></div>
           <div class="photo-container">
             <img src="images/parth.jpg" alt="Parth Singh - Security-Focused Builder &amp; Systems Engineer" class="hero-portrait" loading="eager" fetchpriority="high" />
             <div class="photo-overlay-gradient"></div>
             
+            <!-- Live Location Chip -->
+            <div class="photo-live-status">
+              <span class="pulse-dot"></span>
+              <span>LIVE IN KHARGHAR</span>
+            </div>
+
             <!-- Floating Cyber Badge -->
             <div class="photo-floating-pill">
               <span class="badge-dot pulse"></span>
@@ -129,6 +194,33 @@
               <span class="pcf-loc"><span class="loc-pin">📍</span> Navi Mumbai</span>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Stats Impact Strip -->
+  <section class="stats-strip" id="stats">
+    <div class="container">
+      <div class="stats-grid glass reveal">
+        <div class="stat-card">
+          <div class="stat-val-row"><span class="stat-num" data-target="6">0</span><span class="stat-unit">+</span></div>
+          <div class="stat-desc">Security &amp; AI Systems Built</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-card">
+          <div class="stat-val-row"><span class="stat-num" data-target="480">0</span><span class="stat-unit">t/s</span></div>
+          <div class="stat-desc">Statutory RAG Retrieval Speed</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-card">
+          <div class="stat-val-row"><span class="stat-num" data-target="100">0</span><span class="stat-unit">k</span></div>
+          <div class="stat-desc">PBKDF2 Cryptographic Iterations</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-card">
+          <div class="stat-val-row"><span class="stat-num" data-target="100">0</span><span class="stat-unit">%</span></div>
+          <div class="stat-desc">Hands-On Production Code</div>
         </div>
       </div>
     </div>
@@ -188,6 +280,123 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Engineering Journey & Milestones Section -->
+  <section class="journey section" id="journey">
+    <div class="container">
+      <div class="section-label">
+        <span class="label-line"></span>
+        <span>Trajectory &amp; Milestones</span>
+      </div>
+
+      <div class="journey-header reveal">
+        <h2 class="section-title">Engineering <span class="gradient-text">Journey</span></h2>
+        <p class="section-subtitle">From writing raw socket packet interceptors to building war room cybersecurity HUDs and statutory AI systems.</p>
+      </div>
+
+      <div class="timeline-container">
+        <div class="timeline-spine"></div>
+
+        <!-- Milestone 1: PCE -->
+        <div class="timeline-item reveal" data-year="2024–2028">
+          <div class="timeline-node">
+            <span class="t-node-dot"></span>
+          </div>
+          <div class="timeline-card glass tilt-card">
+            <div class="tl-badge-row">
+              <span class="tl-badge">ACADEMIC CORE</span>
+              <span class="tl-time">2024 — 2028</span>
+            </div>
+            <h3 class="tl-title">B.E. in Information Technology</h3>
+            <div class="tl-org">Pillai College of Engineering · Mumbai University</div>
+            <p class="tl-body">
+              Specializing in low-level systems programming, applied cryptography, network architectures, and distributed systems. Leading self-directed research into counter-surveillance tools and statutory vector retrieval systems.
+            </p>
+            <div class="tl-tags">
+              <span>C / Python</span>
+              <span>Computer Networks</span>
+              <span>OS Kernels</span>
+              <span>Data Structures</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestone 2: Low-Level Security Tooling -->
+        <div class="timeline-item reveal" data-year="2024">
+          <div class="timeline-node">
+            <span class="t-node-dot"></span>
+          </div>
+          <div class="timeline-card glass tilt-card">
+            <div class="tl-badge-row">
+              <span class="tl-badge">OPEN SOURCE TOOLING</span>
+              <span class="tl-time">2024</span>
+            </div>
+            <h3 class="tl-title">Low-Level Security &amp; Network Defense</h3>
+            <div class="tl-org">Key-Guard, Ghost-Net &amp; Secure-Vault</div>
+            <p class="tl-body">
+              Authored automated git pre-commit credential leak prevention with Shannon entropy heuristics (<a href="https://github.com/PS282006/Key-Guard" target="_blank" class="t-cyan">Key-Guard</a>), promiscuous ARP monitoring with Scapy (<a href="https://github.com/PS282006/Ghost-Net" target="_blank" class="t-green">Ghost-Net</a>), and authenticated zero-knowledge storage with AES-256-GCM.
+            </p>
+            <div class="tl-tags">
+              <span>Scapy</span>
+              <span>Shannon Entropy</span>
+              <span>AES-256-GCM</span>
+              <span>PBKDF2</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestone 3: Flagship Systems -->
+        <div class="timeline-item reveal" data-year="2025">
+          <div class="timeline-node">
+            <span class="t-node-dot"></span>
+          </div>
+          <div class="timeline-card glass tilt-card">
+            <div class="tl-badge-row">
+              <span class="tl-badge">PRODUCTION BUILDS</span>
+              <span class="tl-time">2025</span>
+            </div>
+            <h3 class="tl-title">War Room Command Centers &amp; Statutory Legal RAG</h3>
+            <div class="tl-org">SpectreOps &amp; NyaySetu</div>
+            <p class="tl-body">
+              Architected <a href="https://github.com/PS282006/spectre-ops" target="_blank" class="t-cyan">SpectreOps</a>, an Electron desktop command center featuring a 1-click Ghost Mode anti-tracking panel, hardware vitals, CVE radar, and offline LLaMA 3.2. Deployed <a href="https://nyay-setu-omega.vercel.app" target="_blank" class="t-green">NyaySetu</a>, achieving 480 tokens/sec statutory RAG retrieval over modern Indian law.
+            </p>
+            <div class="tl-tags">
+              <span>Electron.js</span>
+              <span>Groq LPU</span>
+              <span>ChromaDB</span>
+              <span>FastAPI</span>
+              <span>Ollama</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestone 4: Present -->
+        <div class="timeline-item reveal active-now" data-year="PRESENT">
+          <div class="timeline-node">
+            <span class="t-node-dot pulse"></span>
+          </div>
+          <div class="timeline-card glass tilt-card active-card">
+            <div class="tl-badge-row">
+              <span class="tl-badge badge-now">CURRENT FOCUS</span>
+              <span class="tl-time text-emerald">NOW · OPEN TO WORK</span>
+            </div>
+            <h3 class="tl-title text-emerald">Software Engineering Internships &amp; Early-Stage Teams</h3>
+            <div class="tl-org">High-Velocity Engineering Roles · Remote / Hybrid</div>
+            <p class="tl-body">
+              Actively seeking software engineering internships, security/systems engineering roles, and startup partnerships. Ready to build resilient backend microservices, defensive security automation, and high-performance user interfaces.
+            </p>
+            <div class="tl-actions">
+              <a href="#contact" class="btn btn-primary btn-sm magnetic-target">
+                <span>Initiate Contact</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -256,20 +465,53 @@
             </div>
 
             <div class="bento-visual">
-              <div class="terminal-mockup">
+              <div class="terminal-mockup" id="spectre-terminal">
                 <div class="t-chrome">
                   <span></span><span></span><span></span>
-                  <div class="t-title">spectre-ops-hud // live-radar</div>
+                  <div class="t-title" id="spectre-t-title">spectre-ops-hud // live-radar</div>
                 </div>
-                <div class="t-body">
-                  <div class="t-row"><span class="t-green">●</span> <span class="t-white">SYSTEM STATUS:</span> <span class="t-green">ACTIVE DEFENSE</span></div>
-                  <div class="t-row"><span class="t-cyan">RADAR:</span> 192.168.1.0/24 subnet scanned</div>
-                  <div class="t-row"><span class="t-purple">GHOST MODE:</span> ProtonVPN + DNS-over-HTTPS</div>
-                  <div class="t-row"><span class="t-yellow">OLLAMA&gt;</span> LLaMA 3.2 ready for telemetry prompt</div>
-                  <div class="radar-circle-anim">
-                    <div class="radar-sweep"></div>
-                    <div class="radar-ping p1"></div>
-                    <div class="radar-ping p2"></div>
+                
+                <!-- Interactive Mini Tab Bar -->
+                <div class="arch-tab-strip">
+                  <button type="button" class="arch-tab-btn active magnetic-target" data-term="spectre" data-view="radar">RADAR</button>
+                  <button type="button" class="arch-tab-btn magnetic-target" data-term="spectre" data-view="ghost">GHOST SHIELD</button>
+                  <button type="button" class="arch-tab-btn magnetic-target" data-term="spectre" data-view="ai">LLAMA 3.2</button>
+                  <button type="button" class="arch-tab-btn magnetic-target" data-term="spectre" data-view="cve">CVE FEED</button>
+                </div>
+
+                <div class="t-body" id="spectre-t-body">
+                  <div class="t-view-pane active" id="spectre-view-radar">
+                    <div class="t-row"><span class="t-green">●</span> <span class="t-white">SYSTEM STATUS:</span> <span class="t-green">ACTIVE DEFENSE</span></div>
+                    <div class="t-row"><span class="t-cyan">RADAR:</span> 192.168.1.0/24 subnet scanned</div>
+                    <div class="t-row"><span class="t-purple">INTERCEPT:</span> Promiscuous broadcast feed active</div>
+                    <div class="t-row"><span class="t-yellow">TELEMETRY:</span> Latency 4ms · Apple Silicon M-series</div>
+                    <div class="radar-circle-anim">
+                      <div class="radar-sweep"></div>
+                      <div class="radar-ping p1"></div>
+                      <div class="radar-ping p2"></div>
+                    </div>
+                  </div>
+
+                  <div class="t-view-pane" id="spectre-view-ghost">
+                    <div class="t-row"><span class="t-purple">🛡️ GHOST SHIELD:</span> <span class="t-green">ARMED (5/5)</span></div>
+                    <div class="t-row"><span class="t-green">✔</span> ProtonVPN WireGuard Tunnel active</div>
+                    <div class="t-row"><span class="t-green">✔</span> Encrypted DoH (Cloudflare 1.1.1.2)</div>
+                    <div class="t-row"><span class="t-green">✔</span> AdBlock /etc/hosts (140k telemetry domains blacklisted)</div>
+                    <div class="t-row"><span class="t-green">✔</span> Hardware MAC Address Spoofed</div>
+                  </div>
+
+                  <div class="t-view-pane" id="spectre-view-ai">
+                    <div class="t-row"><span class="t-cyan">🧠 OLLAMA RUNNING:</span> <span class="t-white">llama3.2:3b-instruct-q4</span></div>
+                    <div class="t-row"><span class="t-white">&gt; Input: "Analyze outbound payload on en0:443"</span></div>
+                    <div class="t-row"><span class="t-green">LLaMA:</span> TLS 1.3 encrypted tunnel detected. Fingerprint matches legitimate Apple push notification service.</div>
+                    <div class="t-row"><span class="t-yellow">⚡ Local Tokens: 62 tok/sec · 0 Cloud Leaks</span></div>
+                  </div>
+
+                  <div class="t-view-pane" id="spectre-view-cve">
+                    <div class="t-row"><span class="t-yellow">📡 NVD LIVE FEED:</span> CVE-2025-XXXX Tracker</div>
+                    <div class="t-row"><span class="t-red">CRITICAL:</span> CVE-2024-4577 [PHP-CGI RCE] - Mitigated</div>
+                    <div class="t-row"><span class="t-yellow">HIGH:</span> CVE-2024-6387 [OpenSSH regreSSHion] - Patched</div>
+                    <div class="t-row"><span class="t-green">✔ Local Packages: 0 Vulnerable Binaries</span></div>
                   </div>
                 </div>
               </div>
@@ -282,25 +524,48 @@
           <div class="bento-glow"></div>
           <div class="bento-inner reverse">
             <div class="bento-visual">
-              <div class="terminal-mockup rag-visual">
+              <div class="terminal-mockup rag-visual" id="nyaysetu-terminal">
                 <div class="t-chrome">
                   <span></span><span></span><span></span>
-                  <div class="t-title">nyaysetu-core // statutory-rag</div>
+                  <div class="t-title" id="nyaysetu-t-title">nyaysetu-core // statutory-rag</div>
                 </div>
-                <div class="t-body">
-                  <div class="t-row"><span class="t-green">●</span> <span class="t-white">LEGAL RAG PIPELINE:</span> <span class="t-green">ONLINE</span></div>
-                  <div class="t-row"><span class="t-cyan">STATUTES:</span> BNS / BNSS / BSA 2023 · RTI · POSH</div>
-                  <div class="t-row"><span class="t-yellow">LPU VELOCITY:</span> Groq Mixtral · 480 tokens/sec</div>
-                  <div class="t-row"><span class="t-purple">CALCULATOR:</span> Wolfram Alpha Compensation API</div>
-                  <div class="t-row t-white">&gt; 1-Click Generation: Court-ready Legal Notices &amp; FIRs</div>
-                  <div class="rag-flow-preview">
-                    <span class="flow-pill">User Query</span>
-                    <span class="flow-arrow">→</span>
-                    <span class="flow-pill active">ChromaDB</span>
-                    <span class="flow-arrow">→</span>
-                    <span class="flow-pill active">Groq LPU</span>
-                    <span class="flow-arrow">→</span>
-                    <span class="flow-pill">Notice.pdf</span>
+
+                <!-- Interactive Mini Tab Bar -->
+                <div class="arch-tab-strip">
+                  <button type="button" class="arch-tab-btn active magnetic-target" data-term="nyay" data-view="rag">RAG FLOW</button>
+                  <button type="button" class="arch-tab-btn magnetic-target" data-term="nyay" data-view="bns">BNS STATUTES</button>
+                  <button type="button" class="arch-tab-btn magnetic-target" data-term="nyay" data-view="notice">NOTICE GEN</button>
+                </div>
+
+                <div class="t-body" id="nyaysetu-t-body">
+                  <div class="t-view-pane active" id="nyay-view-rag">
+                    <div class="t-row"><span class="t-green">●</span> <span class="t-white">LEGAL RAG PIPELINE:</span> <span class="t-green">ONLINE</span></div>
+                    <div class="t-row"><span class="t-cyan">STATUTES:</span> BNS / BNSS / BSA 2023 · RTI · POSH</div>
+                    <div class="t-row"><span class="t-yellow">LPU VELOCITY:</span> Groq Mixtral · 480 tokens/sec</div>
+                    <div class="t-row"><span class="t-purple">CALCULATOR:</span> Wolfram Alpha Compensation API</div>
+                    <div class="rag-flow-preview">
+                      <span class="flow-pill">User Query</span>
+                      <span class="flow-arrow">→</span>
+                      <span class="flow-pill active">ChromaDB</span>
+                      <span class="flow-arrow">→</span>
+                      <span class="flow-pill active">Groq LPU</span>
+                      <span class="flow-arrow">→</span>
+                      <span class="flow-pill">Notice.pdf</span>
+                    </div>
+                  </div>
+
+                  <div class="t-view-pane" id="nyay-view-bns">
+                    <div class="t-row"><span class="t-cyan">📖 STATUTE RETRIEVER:</span> <span class="t-white">BNS 2023 / BNSS 2023</span></div>
+                    <div class="t-row"><span class="t-green">✔ Section 318(4) BNS:</span> Cheating &amp; Dishonestly Inducing Delivery</div>
+                    <div class="t-row"><span class="t-green">✔ Section 351 BNS:</span> Criminal Intimidation</div>
+                    <div class="t-row"><span class="t-yellow">⚡ Context Grounding: 100% Citation Verifiability</span></div>
+                  </div>
+
+                  <div class="t-view-pane" id="nyay-view-notice">
+                    <div class="t-row"><span class="t-purple">⚖️ DRAFTING ENGINE:</span> <span class="t-green">READY</span></div>
+                    <div class="t-row"><span class="t-white">Generating: Legal Notice Under Consumer Protection Act 2019</span></div>
+                    <div class="t-row"><span class="t-green">✔ Multilingual: Hindi / Marathi / English</span></div>
+                    <div class="t-row"><span class="t-cyan">Output: Court-formatted PDF export ready in 1.2s</span></div>
                   </div>
                 </div>
               </div>
@@ -750,6 +1015,27 @@
       <span class="mono footer-status"><span class="pulse-dot-small"></span> SYSTEM STATUS: OPERATIONAL</span>
     </div>
   </footer>
+
+  <!-- Global Spotlight Command Palette (Cmd + K) -->
+  <dialog class="cmd-palette-dialog" id="cmd-palette">
+    <div class="cmd-palette-card glass">
+      <div class="cmd-search-row">
+        <svg class="cmd-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" class="cmd-input" id="cmd-input" placeholder="Type a command or jump to section... (e.g. projects, contact, sound, matrix)" autocomplete="off" spellcheck="false" />
+        <button type="button" class="cmd-badge-esc" id="cmd-close-btn" aria-label="Close Command Palette">ESC</button>
+      </div>
+
+      <div class="cmd-results" id="cmd-results">
+        <!-- Generated dynamically via script.js -->
+      </div>
+
+      <div class="cmd-footer">
+        <span class="cmd-hint">Navigate <kbd>↑</kbd> <kbd>↓</kbd></span>
+        <span class="cmd-hint">Select <kbd>↵</kbd></span>
+        <span class="cmd-hint">Close <kbd>ESC</kbd></span>
+      </div>
+    </div>
+  </dialog>
 
   <script src="script.js"></script>
 </body>
