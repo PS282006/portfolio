@@ -49,6 +49,15 @@ document.addEventListener('DOMContentLoaded', () => {
       mouseY = e.clientY;
       cursor.style.left = `${mouseX}px`;
       cursor.style.top = `${mouseY}px`;
+      if (!cursor.classList.contains('visible')) {
+        cursor.classList.add('visible');
+        follower.classList.add('visible');
+      }
+    });
+
+    document.addEventListener('mouseleave', () => {
+      cursor.classList.remove('visible');
+      follower.classList.remove('visible');
     });
 
     function renderCursor() {
