@@ -908,6 +908,26 @@ body.cursor-clicking .cursor-ring {
   padding: 14px 8px 4px;
 }
 
+.pcf-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pcf-name {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text-primary);
+}
+
+.pcf-role {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
 .tap-hint-pill {
   display: inline-flex;
   align-items: center;

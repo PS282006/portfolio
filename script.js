@@ -817,14 +817,14 @@ document.addEventListener('DOMContentLoaded', () => {
   <span class="t-green">neofetch</span>    - System architecture report`,
 
     about: `
-<span class="t-white">Parth Singh</span> // Security-Focused Builder &amp; Systems Engineer
+<span class="t-white">Parth Singh</span> // Full-Stack Developer &amp; Security Researcher
 Location: Kharghar, Navi Mumbai, India (UTC +5:30)
-Education: Pillai College of Engineering (B.Tech Information Technology 2024–2028)
-Focus: Systems telemetry, counter-surveillance, statutory legal RAG, cryptographic protocols.`,
+Education: Pillai College of Engineering (B.Tech Information Technology)
+Focus: Full-stack web architectures, systems security, statutory legal RAG, cryptographic protocols.`,
 
     journey: `
 <span class="t-cyan">Engineering Trajectory:</span>
-  • <span class="t-green">2024–2028</span>: Pillai College of Engineering (B.Tech IT)
+  • <span class="t-green">Undergrad</span>: Pillai College of Engineering (B.Tech IT)
   • <span class="t-green">2024</span>: Low-level tools (Key-Guard Shannon entropy, Ghost-Net Scapy sniffer)
   • <span class="t-green">2025</span>: SpectreOps (Cyber War Room HUD) &amp; NyaySetu (Statutory Legal RAG)
   • <span class="t-green">NOW</span>: Open to Software Engineering Internships &amp; Early-Stage Startup Roles`,
