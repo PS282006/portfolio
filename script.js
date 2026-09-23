@@ -412,24 +412,6 @@ document.addEventListener('DOMContentLoaded', () => {
     el.addEventListener('mouseenter', () => scrambler.scramble());
   });
 
-  // ─── 7. LIVE DEFENSE TELEMETRY CLOCK (IST) ────────────────
-  const telemetryClock = document.getElementById('telemetry-clock');
-  function updateTelemetryClock() {
-    if (!telemetryClock) return;
-    const now = new Date();
-    // Indian Standard Time options
-    const istTimeStr = now.toLocaleTimeString('en-US', {
-      timeZone: 'Asia/Kolkata',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      hour12: true
-    });
-    telemetryClock.textContent = `${istTimeStr} IST`;
-  }
-  updateTelemetryClock();
-  setInterval(updateTelemetryClock, 1000);
-
   // ─── 8. SCROLL COUNT-UP IMPACT STATS ODOMETER ─────────────
   const statNumbers = document.querySelectorAll('.stat-num');
   let statsTriggered = false;
@@ -535,250 +517,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ─── 12. FULLSCREEN MATRIX DIGITAL RAIN MODE ──────────────
-  const matrixCanvas = document.getElementById('matrix-canvas');
-  let matrixActive = false;
-  let matrixInterval = null;
-
-  function startMatrix() {
-    if (!matrixCanvas) return;
-    matrixActive = true;
-    matrixCanvas.classList.add('active');
-    const ctx = matrixCanvas.getContext('2d');
-    let W = matrixCanvas.width = window.innerWidth;
-    let H = matrixCanvas.height = window.innerHeight;
-
-    const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
-    const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#@%&*';
-    const chars = (katakana + latin).split('');
-
-    const fontSize = 16;
-    const columns = Math.floor(W / fontSize);
-    const drops = Array(columns).fill(1);
-
-    function drawMatrix() {
-      ctx.fillStyle = 'rgba(6, 7, 9, 0.08)';
-      ctx.fillRect(0, 0, W, H);
-
-      ctx.fillStyle = '#00ff88';
-      ctx.font = `${fontSize}px monospace`;
-
-      for (let i = 0; i < drops.length; i++) {
-        const text = chars[Math.floor(Math.random() * chars.length)];
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-        if (drops[i] * fontSize > H && Math.random() > 0.975) {
-          drops[i] = 0;
-        }
-        drops[i]++;
-      }
-    }
-
-    clearInterval(matrixInterval);
-    matrixInterval = setInterval(drawMatrix, 33);
-    showToast('🟢 Matrix Mode Active. Click anywhere or press ESC to exit.', 'success');
-
-    matrixCanvas.addEventListener('click', stopMatrix, { once: true });
-    window.addEventListener('keydown', function escMatrix(e) {
-      if (e.key === 'Escape' && matrixActive) {
-        stopMatrix();
-        window.removeEventListener('keydown', escMatrix);
-      }
-    });
-  }
-
-  function stopMatrix() {
-    if (!matrixCanvas) return;
-    matrixActive = false;
-    matrixCanvas.classList.remove('active');
-    clearInterval(matrixInterval);
-  }
-
-  // ─── 13. SPOTLIGHT COMMAND PALETTE (CMD + K) ──────────────
-  const cmdPalette = document.getElementById('cmd-palette');
-  const cmdTrigger = document.getElementById('cmd-trigger');
-  const heroCmdBtn = document.getElementById('hero-cmd-btn');
-  const cmdCloseBtn = document.getElementById('cmd-close-btn');
-  const cmdInput = document.getElementById('cmd-input');
-  const cmdResults = document.getElementById('cmd-results');
-
-  const commandItems = [
-    // Projects
-    { title: 'SpectreOps // War Room HUD', desc: 'macOS Command Center & LLaMA 3.2', group: 'Projects', icon: '🛡️', action: () => window.open('https://github.com/PS282006/spectre-ops', '_blank') },
-    { title: 'NyaySetu // Legal RAG Assistant', desc: 'Sub-second Indian Statutory Law AI', group: 'Projects', icon: '⚖️', action: () => window.open('https://nyay-setu-omega.vercel.app', '_blank') },
-    { title: 'Key-Guard // Git Secret Scanner', desc: 'Shannon Entropy Credential Auditor', group: 'Projects', icon: '🔑', action: () => window.open('https://github.com/PS282006/Key-Guard', '_blank') },
-    { title: 'Ghost-Net // ARP Packet Shield', desc: 'Scapy Promiscuous Anti-MITM Sniffer', group: 'Projects', icon: '📡', action: () => window.open('https://github.com/PS282006/Ghost-Net', '_blank') },
-    { title: 'Secure-Vault // Zero-Knowledge', desc: 'AES-256-GCM + PBKDF2 stretching', group: 'Projects', icon: '🔒', action: () => window.open('https://github.com/PS282006/secure-vault', '_blank') },
-
-    // Navigation
-    { title: 'Jump to About Section', desc: 'Identity, Philosophy & Security Vision', group: 'Navigation', icon: '👤', action: () => scrollToSection('#about') },
-    { title: 'Jump to Journey & Timeline', desc: 'Education & Systems Engineering Trajectory', group: 'Navigation', icon: '🚀', action: () => scrollToSection('#journey') },
-    { title: 'Jump to Projects Bento', desc: 'Explore all 6 flagship builds', group: 'Navigation', icon: '💻', action: () => scrollToSection('#projects') },
-    { title: 'Jump to Interactive Terminal', desc: 'Run live zsh shell commands', group: 'Navigation', icon: '⌨️', action: () => { scrollToSection('#terminal'); document.getElementById('cli-input')?.focus(); } },
-    { title: 'Jump to Skills Arsenal', desc: 'Systems, AI, Web HUDs, DevSecOps', group: 'Navigation', icon: '⚡', action: () => scrollToSection('#skills') },
-    { title: 'Jump to Contact & Message', desc: 'Send direct message or email', group: 'Navigation', icon: '✉️', action: () => scrollToSection('#contact') },
-
-    // Direct Outreach
-    { title: 'Direct Call (+91 9137534703)', desc: 'Click to call mobile directly', group: 'Contact', icon: '📞', action: () => window.location.href = 'tel:+919137534703' },
-    { title: 'Copy Email Address', desc: 'parth.singh2006@outlook.com', group: 'Contact', icon: '📋', action: () => copyEmailToClipboard() },
-    { title: 'Send Message Directly', desc: 'Focus on in-browser contact form', group: 'Contact', icon: '💬', action: () => { scrollToSection('#contact'); document.getElementById('user-msg')?.focus(); } },
-
-    // Social Profiles
-    { title: 'Visit GitHub Profile', desc: 'github.com/PS282006', group: 'Socials', icon: '🐙', action: () => window.open('https://github.com/PS282006', '_blank') },
-    { title: 'Connect on LinkedIn', desc: 'linkedin.com/in/parth-singh-ba47ab386', group: 'Socials', icon: '💼', action: () => window.open('https://www.linkedin.com/in/parth-singh-ba47ab386', '_blank') },
-    { title: 'Follow on X / Twitter', desc: '@parth_singh2006', group: 'Socials', icon: '🐦', action: () => window.open('https://x.com/parth_singh2006', '_blank') },
-
-    // Special Actions
-    { title: 'Toggle Cyber Sound FX', desc: 'Audio synthesized via Web Audio API (M)', group: 'Actions', icon: '🔊', action: () => sound.toggle() },
-    { title: 'Launch Matrix Digital Rain', desc: 'Fullscreen cyber code precipitation', group: 'Actions', icon: '🟢', action: () => startMatrix() }
-  ];
-
-  let selectedCmdIndex = 0;
-  let activeFilteredCommands = [];
-
-  function renderCommands(query = '') {
-    if (!cmdResults) return;
-    const lowerQuery = query.toLowerCase().trim();
-    activeFilteredCommands = commandItems.filter(item => {
-      return item.title.toLowerCase().includes(lowerQuery) ||
-             item.desc.toLowerCase().includes(lowerQuery) ||
-             item.group.toLowerCase().includes(lowerQuery);
-    });
-
-    if (activeFilteredCommands.length === 0) {
-      cmdResults.innerHTML = `<div class="cmd-group-label" style="text-align:center; padding: 24px;">No commands matching "${query}"</div>`;
-      return;
-    }
-
-    selectedCmdIndex = Math.min(selectedCmdIndex, activeFilteredCommands.length - 1);
-    let html = '';
-    let currentGroup = '';
-
-    activeFilteredCommands.forEach((cmd, idx) => {
-      if (cmd.group !== currentGroup) {
-        currentGroup = cmd.group;
-        html += `<div class="cmd-group-label">// ${currentGroup}</div>`;
-      }
-      const isSelected = idx === selectedCmdIndex ? 'selected' : '';
-      html += `
-        <div class="cmd-item ${isSelected}" data-idx="${idx}">
-          <div class="cmd-item-left">
-            <span class="cmd-item-icon">${cmd.icon}</span>
-            <div>
-              <span class="cmd-item-title">${cmd.title}</span>
-              <span class="cmd-item-desc">${cmd.desc}</span>
-            </div>
-          </div>
-          <span class="cmd-item-badge">ENTER</span>
-        </div>
-      `;
-    });
-
-    cmdResults.innerHTML = html;
-
-    // Click handler for generated items
-    const items = cmdResults.querySelectorAll('.cmd-item');
-    items.forEach(item => {
-      item.addEventListener('click', () => {
-        const idx = parseInt(item.getAttribute('data-idx') || '0', 10);
-        executeCommand(idx);
-      });
-    });
-  }
-
-  function executeCommand(index) {
-    if (activeFilteredCommands[index]) {
-      sound.playClick();
-      closePalette();
-      activeFilteredCommands[index].action();
-    }
-  }
-
-  function openPalette() {
-    if (!cmdPalette) return;
-    sound.playHover();
-    cmdPalette.showModal();
-    if (cmdInput) {
-      cmdInput.value = '';
-      cmdInput.focus();
-    }
-    selectedCmdIndex = 0;
-    renderCommands('');
-  }
-
-  function closePalette() {
-    if (cmdPalette && cmdPalette.open) {
-      cmdPalette.close();
-    }
-  }
-
-  function scrollToSection(selector) {
-    const el = document.querySelector(selector);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  }
-
-  if (cmdTrigger) cmdTrigger.addEventListener('click', openPalette);
-  if (heroCmdBtn) heroCmdBtn.addEventListener('click', openPalette);
-  if (cmdCloseBtn) cmdCloseBtn.addEventListener('click', closePalette);
-
-  // Close palette on backdrop click
-  if (cmdPalette) {
-    cmdPalette.addEventListener('click', (e) => {
-      const rect = cmdPalette.getBoundingClientRect();
-      if (e.clientY < rect.top || e.clientY > rect.bottom || e.clientX < rect.left || e.clientX > rect.right) {
-        closePalette();
-      }
-    });
-  }
-
-  // Global Cmd+K / Ctrl+K listener
-  window.addEventListener('keydown', (e) => {
-    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
-      e.preventDefault();
-      if (cmdPalette && cmdPalette.open) {
-        closePalette();
-      } else {
-        openPalette();
-      }
-    }
-  });
-
-  if (cmdInput) {
-    cmdInput.addEventListener('input', () => {
-      selectedCmdIndex = 0;
-      renderCommands(cmdInput.value);
-    });
-
-    cmdInput.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowDown') {
-        e.preventDefault();
-        if (activeFilteredCommands.length > 0) {
-          selectedCmdIndex = (selectedCmdIndex + 1) % activeFilteredCommands.length;
-          renderCommands(cmdInput.value);
-          ensureVisibleCmdItem();
-        }
-      } else if (e.key === 'ArrowUp') {
-        e.preventDefault();
-        if (activeFilteredCommands.length > 0) {
-          selectedCmdIndex = (selectedCmdIndex - 1 + activeFilteredCommands.length) % activeFilteredCommands.length;
-          renderCommands(cmdInput.value);
-          ensureVisibleCmdItem();
-        }
-      } else if (e.key === 'Enter') {
-        e.preventDefault();
-        executeCommand(selectedCmdIndex);
-      } else if (e.key === 'Escape') {
-        closePalette();
-      }
-    });
-  }
-
-  function ensureVisibleCmdItem() {
-    const selectedEl = cmdResults?.querySelector('.cmd-item.selected');
-    if (selectedEl) {
-      selectedEl.scrollIntoView({ block: 'nearest' });
-    }
-  }
 
   // ─── 14. TOAST NOTIFICATIONS & 1-CLICK EMAIL COPY ─────────
   const toastContainer = document.getElementById('toast-container');
@@ -940,12 +678,12 @@ document.addEventListener('DOMContentLoaded', () => {
     about: `
 <span class="t-white">Parth Singh</span> // Security-Focused Builder &amp; Systems Engineer
 Location: Kharghar, Navi Mumbai, India (UTC +5:30)
-Education: Pillai College of Engineering (B.E. Information Technology 2024–2028)
+Education: Pillai College of Engineering (B.Tech Information Technology 2024–2028)
 Focus: Systems telemetry, counter-surveillance, statutory legal RAG, cryptographic protocols.`,
 
     journey: `
 <span class="t-cyan">Engineering Trajectory:</span>
-  • <span class="t-green">2024–2028</span>: Pillai College of Engineering (B.E. IT)
+  • <span class="t-green">2024–2028</span>: Pillai College of Engineering (B.Tech IT)
   • <span class="t-green">2024</span>: Low-level tools (Key-Guard Shannon entropy, Ghost-Net Scapy sniffer)
   • <span class="t-green">2025</span>: SpectreOps (Cyber War Room HUD) &amp; NyaySetu (Statutory Legal RAG)
   • <span class="t-green">NOW</span>: Open to Software Engineering Internships &amp; Early-Stage Startup Roles`,
@@ -981,8 +719,9 @@ Focus: Systems telemetry, counter-surveillance, statutory legal RAG, cryptograph
   • X/Twitter:<a href="https://x.com/parth_singh2006" target="_blank" class="t-purple">x.com/parth_singh2006</a>`,
 
     matrix: `
-<span class="t-green">Initiating Matrix Digital Rain Protocol...</span>
-[Press ESC or click anywhere on screen to exit]`,
+<span class="t-green">Wake up, Neo...</span>
+The Matrix has you. Follow the white rabbit. 🐇
+[Terminal systems online · 0 vulnerabilities detected]`,
 
     audio: `
 <span class="t-cyan">Audio Synthesizer status toggled!</span> (Shortcut: Press 'M')`,
@@ -1025,7 +764,6 @@ Send an email directly to <span class="t-cyan">parth.singh2006@outlook.com</span
         if (cmd === 'clear') {
           cliOutput.innerHTML = '';
         } else if (cmd === 'matrix') {
-          startMatrix();
           const res = document.createElement('div');
           res.className = 'cli-row';
           res.innerHTML = terminalResponses.matrix;
@@ -1071,15 +809,22 @@ Send an email directly to <span class="t-cyan">parth.singh2006@outlook.com</span
     });
   }
 
-  // ─── 17. SCROLL REVEAL (INTERSECTION OBSERVER) ────────────
+  // ─── SCROLL REVEAL (INTERSECTION OBSERVER) ────────────────
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('active');
+        observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
 
-  reveals.forEach(el => observer.observe(el));
+  reveals.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight + 100) {
+      el.classList.add('active');
+    }
+    observer.observe(el);
+  });
 });
