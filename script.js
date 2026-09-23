@@ -294,6 +294,55 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Direct Message Form & Copy Text Handlers
+  const copyDraftBtn = document.getElementById('btn-copy-draft');
+  if (copyDraftBtn) {
+    copyDraftBtn.addEventListener('click', () => {
+      const name = document.getElementById('user-name')?.value.trim() || '';
+      const email = document.getElementById('user-email')?.value.trim() || '';
+      const msg = document.getElementById('user-msg')?.value.trim() || '';
+
+      if (!msg && !name && !email) {
+        showToast('Please type a message first!', 'info');
+        return;
+      }
+
+      let formattedText = '';
+      if (name) formattedText += `From: ${name}\n`;
+      if (email) formattedText += `Email: ${email}\n`;
+      if (formattedText) formattedText += `\n`;
+      formattedText += msg;
+
+      navigator.clipboard.writeText(formattedText).then(() => {
+        showToast('Message text copied to clipboard! 📋');
+      }).catch(() => {
+        showToast('Failed to copy text', 'info');
+      });
+    });
+  }
+
+  const msgForm = document.getElementById('direct-message-form');
+  if (msgForm) {
+    msgForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('user-name')?.value.trim() || 'Portfolio Visitor';
+      const email = document.getElementById('user-email')?.value.trim() || '';
+      const msg = document.getElementById('user-msg')?.value.trim() || '';
+
+      if (!msg) {
+        showToast('Please enter your message!', 'info');
+        return;
+      }
+
+      const subject = encodeURIComponent(`Portfolio Inquiry from ${name}`);
+      const body = encodeURIComponent(`Hello Parth,\n\n${msg}\n\n---\nSender: ${name}\nEmail: ${email}`);
+      const mailtoUrl = `mailto:parth.singh2006@outlook.com?subject=${subject}&body=${body}`;
+
+      showToast('Opening your email client... 🚀');
+      window.location.href = mailtoUrl;
+    });
+  }
+
   // ─── 10. INTERACTIVE IN-BROWSER CLI TERMINAL ───────────────
   const cliInput = document.getElementById('cli-input');
   const cliOutput = document.getElementById('cli-output');
