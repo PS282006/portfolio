@@ -841,10 +841,12 @@ Focus: Full-stack web architectures, systems security, statutory legal RAG, cryp
 
     skills: `
 <span class="t-cyan">Technical Stack:</span>
-  <span class="t-white">Systems &amp; Security:</span> Python, Scapy, Cryptography, Linux/Kali, Bash, Socket programming, Nmap, Wireshark.
-  <span class="t-white">AI &amp; Backend:</span>       FastAPI, RAG, ChromaDB, Groq LPU (Mixtral), Local Ollama, PostgreSQL.
-  <span class="t-white">Client &amp; HUDs:</span>       Electron.js, Next.js, React, TypeScript, Modern CSS/Canvas, WebSocket telemetry.
-  <span class="t-white">DevSecOps:</span>           Git pre-commit hooks, Docker, CI/CD Actions.`,
+  <span class="t-white">Languages:</span> Python, TypeScript, JavaScript
+  <span class="t-white">Backend:</span> FastAPI, Node.js, REST APIs, SQLite
+  <span class="t-white">Frontend:</span> Next.js, React, Electron
+  <span class="t-white">Security:</span> Cryptography, Networking (Scapy), Secret Scanning
+  <span class="t-white">AI / ML:</span> RAG, LLM Integration, ChromaDB, Groq
+  <span class="t-white">Tools:</span> Git, GitHub, Vercel, Render`,
 
     contact: `
 <span class="t-cyan">Direct Contact Coordinates:</span>

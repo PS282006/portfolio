@@ -1126,7 +1126,7 @@ body.cursor-clicking .cursor-ring {
 
 .bento-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 28px;
 }
 
@@ -2375,6 +2375,9 @@ body.cursor-clicking .cursor-ring {
   }
   .bento-inner, .bento-inner.reverse {
     grid-template-columns: 1fr;
+  }
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
