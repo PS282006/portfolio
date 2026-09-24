@@ -803,9 +803,9 @@ Focus: Full-stack web architectures, systems security, statutory legal RAG, cryp
     <a href="https://github.com/PS282006/spectre-ops" target="_blank" class="t-purple">github.com/PS282006/spectre-ops</a>
   • <span class="t-green">NyaySetu</span> [Next.js/FastAPI/Groq LPU] - Statutory Legal RAG over BNS 2023, Wolfram Alpha, voice FIR generator.
     <a href="https://nyay-setu-omega.vercel.app" target="_blank" class="t-cyan">Live Demo: nyay-setu-omega.vercel.app</a>
-  • <span class="t-green">Key-Guard</span> [Python] - Automated git secret &amp; token leak scanner with Shannon entropy analysis.
-  • <span class="t-green">Ghost-Net</span> [Python/Scapy] - Promiscuous ARP packet monitor &amp; anti-MITM defense.
-  • <span class="t-green">Secure-Vault</span> [Python/AES-256-GCM] - Zero-knowledge file vault with PBKDF2 stretching.`,
+  • <span class="t-green">Key-Guard</span> [Python] - Automated pre-commit scanner catching hardcoded API keys and tokens.
+  • <span class="t-green">Ghost-Net</span> [Python/Scapy] - Low-level ARP network discovery and host inventory tool.
+  • <span class="t-green">SecureVault</span> [Python] - PBKDF2-HMAC-SHA256 password hashing with unique salts.`,
 
     skills: `
 <span class="t-cyan">Technical Stack:</span>
@@ -832,7 +832,7 @@ Focus: Full-stack web architectures, systems security, statutory legal RAG, cryp
     matrix: `
 <span class="t-green">Wake up, Neo...</span>
 The Matrix has you. Follow the white rabbit. 🐇
-[Terminal systems online · 0 vulnerabilities detected]`,
+[Terminal systems online · Defensive node armed]`,
 
     audio: `
 <span class="t-cyan">Audio Synthesizer status toggled!</span> (Shortcut: Press 'M')`,
@@ -847,10 +847,10 @@ Send an email directly to <span class="t-cyan">parth.singh2006@outlook.com</span
 <span class="t-green">     /      \\     </span>  ------------------
 <span class="t-green">    |  🛡️    |    </span>  <span class="t-white">OS:</span> macOS Sequoia / Kali Linux
 <span class="t-green">    |   🧠   |    </span>  <span class="t-white">Host:</span> Apple Silicon / LLaMA 3.2 Offline Node
-<span class="t-green">     \\      /     </span>  <span class="t-white">Uptime:</span> 100% High-Velocity Builder
+<span class="t-green">     \\      /     </span>  <span class="t-white">Status:</span> Active / High-Velocity Builder
 <span class="t-green">       \\__/       </span>  <span class="t-white">Shell:</span> zsh / Python Systems Tooling
                     <span class="t-white">Memory:</span> 16 GB Unified RAM
-                    <span class="t-white">Inference:</span> Groq LPU (480 t/s) + Local Ollama`
+                    <span class="t-white">Inference:</span> Groq Cloud LPU + Local Ollama`
   };
 
   function executeCliCommand(rawCmd) {
